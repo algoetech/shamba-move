@@ -16,11 +16,11 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+require __DIR__.'/auth.php';
 
+//
 Route::group([
     'as' => 'frontend.',
 ], function () {
     Route::get('{page}', [GeneralController::class, 'page'])->name('page');
 });
-
-require __DIR__.'/auth.php';
