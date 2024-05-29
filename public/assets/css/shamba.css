@@ -1,0 +1,20 @@
+@font-face {
+    font-family: Poppin;
+    src: url(../fonts/poppins-semibold-webfont.woff2);
+    src: url(../fonts/poppins-semibold-webfont.woff);
+}
+
+@font-face {
+    font-family: Poppin-light;
+    src: url(../fonts/poppins-regular-webfont.woff);
+}
+
+.poppin {
+    font-family: 'Poppin';
+}
+.poppin-light {
+    font-family: 'Poppin-light', Arial, Helvetica, sans-serif;
+}
+.capitals {
+    text-transform: capitalize !important;
+}
