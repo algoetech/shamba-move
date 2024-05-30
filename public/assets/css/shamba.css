@@ -9,6 +9,11 @@
     src: url(../fonts/poppins-regular-webfont.woff);
 }
 
+
+:root {
+    --tai-primary-col: #f3b42d;
+}
+
 .poppin {
     font-family: 'Poppin';
 }

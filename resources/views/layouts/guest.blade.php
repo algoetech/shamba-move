@@ -22,8 +22,8 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased text-gray-900">
-        <div class="flex flex-col items-center min-h-screen pt-6 bg-gray-100 sm:justify-center sm:pt-0 dark:bg-gray-900">
+    <body class="antialiased text-gray-900 poppin">
+        <div class="flex z-100 sticky flex-col items-center min-h-screen pt-6 sm:justify-center sm:pt-0">
             <div>
                 <a href="/">
                     <x-application-logo class="w-20 h-20 text-gray-500 fill-current" />
@@ -34,5 +34,12 @@
                 {{ $slot }}
             </div>
         </div>
+         <!-- banner image -->
+    <div class="absolute top-0 w-full">
+        <span id="overlay"
+            class="w-full absolute h-[920px] bg-gradient-to-tr from-black/80 via-vendor-compliment-primary/60 to-vendor-compliment-primary">
+        </span>
+        <img class="w-full" id="banner" src="{{asset('assets/images/villages-farm.jpg')}}" alt="Farmer">
+    </div>
     </body>
 </html>
