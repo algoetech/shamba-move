@@ -43,8 +43,8 @@ export default {
             alpha: "#d3942d",
         },
         tertiary: {
-            alpha: "#3ec5f9",
-            beta: "#0292fe",
+            alpha: "#aec539",
+            beta: "#5e7519",
         },
         compliment: {
             primary: "#015633",

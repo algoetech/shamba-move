@@ -48,8 +48,8 @@
 
     <!-- section intro here -->
     <section class="w-full container p-0 rounded-2 bg-white lg:mt-[300px] z-100 sticky">
-        <div class="w-full bg-vendor-secondary-beta/30  grid grid-cols-12 py-8 px-4 mx-auto">
-            <div class="w-full bg-slate-300 col-start-1 col-end-13">
+        <div class="grid w-full grid-cols-12 px-4 py-8 mx-auto bg-vendor-secondary-beta/30">
+            <div class="w-full col-start-1 col-end-13 bg-slate-300">
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                 Placeat incidunt sit odio sint laborum odit, voluptates libero excepturi sed perferendis, quas nihil qui voluptatum, facere velit impedit harum est ullam!
             </div>
@@ -58,7 +58,9 @@
 
     <!-- Latest Post -->
     <section class="">
-
+        {{-- @foreach ($role->users as $item)
+            {{$item->name}}
+        @endforeach --}}
     </section>
 
     <script type="module">

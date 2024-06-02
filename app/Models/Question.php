@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Question extends Model
 {
     use HasFactory;
+
+
+    protected $fillable = [
+        'post_id',
+        'status',
+    ];
+
+    public function post(){
+        return $this->belongsTo(Post::class);
+    }
 }
