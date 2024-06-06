@@ -33,7 +33,7 @@ To install and run Shamba-Move locally, follow these steps:
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/yourusername/shamba-move.git
+   git clone https://github.com/algoetech/shamba-move.git
    cd shamba-move
     ```
 
