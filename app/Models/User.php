@@ -9,6 +9,9 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Traits\HasRoles;
 
 /**
  * @class \App\Models\User
@@ -27,12 +30,9 @@ use Illuminate\Support\Facades\Auth;
  */
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, HasRoles;
 
-    /**
-     *
-     */
-    public ?self $role;
+
 
     /**
      * The attributes that are mass assignable.
@@ -60,9 +60,6 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    public function __construct($var = null) {
-        $this->role = $var;
-    }
 
     /**
      * Get the attributes that should be cast.
@@ -87,7 +84,8 @@ class User extends Authenticatable
         return $this->hasMany(Post::class);
     }
 
-    public function role() {
+    public function role(): BelongsTo
+    {
         return $this->belongsTo(Role::class);
     }
 
@@ -101,27 +99,6 @@ class User extends Authenticatable
         return $userRole === $roles;
     }
 
-    public function hasFixedRole($role){
-        return $this->role->name === $role;
-    }
 
-    /**
-     * Get the value of role
-     */
-    public function getRole()
-    {
-        return $this->role;
-    }
 
-    /**
-     * Set the value of role
-     *
-     * @return  self
-     */
-    public function setRole($role)
-    {
-        $this->role = $role;
-
-        return $this;
-    }
-}
+ }

@@ -14,36 +14,36 @@ class PermissionsSeeder extends Seeder
     public function run(): void
     {
         Permission::create([
-            'model' => 'User',
-            'action' => 'create'
+            'name' => 'create_users',
+            'guard_name' => 'web'
         ]);
         Permission::create([
-            'model' => 'User',
-            'action' => 'read'
+            'name' => 'read_users',
+            'guard_name' => 'web'
         ]);
         Permission::create([
-            'model' => 'User',
-            'action' => 'update'
+            'name' => 'update_users',
+            'guard_name' => 'web'
         ]);
         Permission::create([
-            'model' => 'User',
-            'action' => 'delete'
+            'name' => 'delete_users',
+            'guard_name' => 'web'
         ]);
         Permission::create([
-            'model' => 'Post',
-            'action' => 'create'
+            'name' => 'create_posts',
+            'guard_name' => 'web'
         ]);
         Permission::create([
-            'model' => 'Post',
-            'action' => 'read'
+            'name' => 'read_posts',
+            'guard_name' => 'web'
         ]);
         Permission::create([
-            'model' => 'Post',
-            'action' => 'update'
+            'name' => 'update_posts',
+            'guard_name' => 'web'
         ]);
         Permission::create([
-            'model' => 'Post',
-            'action' => 'delete'
+            'name' => 'delete_posts',
+            'guard_name' => 'web'
         ]);
     }
 }

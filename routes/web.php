@@ -10,12 +10,16 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\SiteController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\TopicCategoryController;
 use App\Http\Controllers\TopicController;
 use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
+
+// Auth::routes();
 Route::get('/', [GeneralController::class, 'index'])->name('index');
 
 Route::prefix('OAuth')->get('/dashboard', function () {
@@ -53,5 +57,6 @@ Route::prefix('OAuth')->as('admin.')->middleware(['auth', 'role:admin'])->group(
         'pages' => PageController::class,
         'post-categories' => PostCategoryController::class,
         'permissions' => PermissionController::class,
+        'site' => SiteController::class,
     ]);
 });

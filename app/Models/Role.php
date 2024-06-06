@@ -5,37 +5,25 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Spatie\Permission\Models\Role as ModelsRole;
+use Spatie\Permission\Traits\HasPermissions;
 
 /**
  * Undocumented class
  *
  * @method \lluminate\Database\Eloquent\Relations\HasMany|null users()
  */
-class Role extends Model
+class Role extends ModelsRole
 {
-    use HasFactory;
 
-    public $permissionsAll;
+    use HasFactory, HasPermissions;
 
-    protected $fillable = [
-        'name',
-        'guard'
-    ];
-
-    public function __construct() {
-        $this->permissionsAll = $this->permissions();
+    public function perms(){
+        return $this->hasMany(Permission::class);
     }
 
-    /**
-     * - track the users with the given role instance
-     *
-     * @return HasMany|null
-     */
-    public function users() : HasMany|null {
-        return $this->hasMany(User::class);
+    public function hasPermission($p){
+        return $this->hasAnyPermission($p);
     }
 
-    public function permissions(){
-        return $this->belongsToMany(Permission::class, 'role_permission');
-    }
 }

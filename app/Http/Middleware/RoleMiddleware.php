@@ -19,7 +19,7 @@ class RoleMiddleware
     {
         abort_if(is_null($request->user()), Response::HTTP_UNAUTHORIZED, 'Unauthorized Session');
         $user = $request->user();
-        dd($user->role);
+        // dd($roles, auth()->user(), $user->role);
         $userRole = $user->role->name;
         $roleNames = explode('|', $roles);
 
