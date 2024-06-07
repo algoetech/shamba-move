@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->text('content');
             $table->string('slug')->unique();
+            $table->string('banner', 90)->nullable();
             $table->timestamps();
         });
     }

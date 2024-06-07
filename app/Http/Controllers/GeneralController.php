@@ -7,6 +7,7 @@ use App\Models\Page;
 use App\Models\Post;
 use App\Models\PostCategory;
 use App\Models\Role;
+use App\Models\Site;
 use App\Models\Topic;
 use App\Models\TopicCategory;
 use App\Models\User;
@@ -27,12 +28,13 @@ class GeneralController extends Controller
         $articles = Article::all();
         $posts = Post::all();
         $post_categories = PostCategory::all();
-        $pages = Page::all();
+        $pages = Page::where('resource', '=', true)->get();
         $topics = Topic::all();
+        $sites = Site::all();
         $topic_categories = TopicCategory::all();
         // $role = Role::where('id', '=', Auth::user()->role_id)->with('permissions')->get();
 
-        return view('index', compact('articles', 'posts', 'post_categories', 'pages', 'topics', 'topic_categories'));
+        return view('index', compact('articles', 'posts', 'post_categories', 'pages', 'topics', 'topic_categories', 'sites'));
     }
 
 

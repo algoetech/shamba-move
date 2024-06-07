@@ -12,7 +12,9 @@ class PageController extends Controller
      */
     public function index()
     {
-        //
+        $pages = Page::all();
+        $title = "Pages";
+        return view('backend.pages.index', compact('pages', 'title'));
     }
 
     /**

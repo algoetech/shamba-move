@@ -82,11 +82,25 @@ class PostCategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        return $request;
+        // return $request;
         $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'required|string'
         ]);
+
+        try {
+            $postCategory = PostCategory::findOrFail($id);
+            
+            $postCategory->name = $request->name;
+            $postCategory->description = $request->description;
+
+            $postCategory->update();
+            
+            return redirect()->route('admin.post-categories.index')->with('status', 'Post Category updated successfully.');
+        } catch (\Exception $e) {
+            Log::error('Error updating user: ' . $e->getMessage());
+            return redirect()->back()->with('error', 'There was an error updating the Post Category. Please try again.')->withInput();
+        }
     }
 
     /**

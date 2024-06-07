@@ -111,7 +111,7 @@
                                                 clip-rule="evenodd"></path>
                                         </svg>
                                         <a href="#"
-                                            class="ml-1 text-gray-700 hover:text-primary-600 md:ml-2 dark:text-gray-300 dark:hover:text-primary-500">Pages</a>
+                                            class="ml-1 text-gray-700 hover:text-primary-600 md:ml-2 dark:text-gray-300 dark:hover:text-primary-500"> {{ $title ?? 'Home' }}</a>
                                     </div>
                                 </li>
 
@@ -142,6 +142,7 @@
                     ['link', 'image', 'video'],
                     ['blockquote', 'code-block'],
                     [{ 'font': [] }],
+                    [{ 'direction': 'rtl' }],
                     [{ 'size': [] }, 'clean'],
                     [{ 'script': 'sub' }, { 'script': 'super' }],
                     [{ 'indent': '-1' }, { 'indent': '+1' }],
@@ -152,7 +153,10 @@
             }
         });
 
-        {{$javascript}}
+        @isset($javascript)
+            {{$javascript}}
+        @endisset
+        
 
 
     </script>

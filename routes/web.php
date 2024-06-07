@@ -41,7 +41,7 @@ Route::group([
     'as' => 'frontend.',
 ], function () {
 
- Route::get('{page}', [GeneralController::class, 'page'])->name('page');
+ Route::get('/{slug}', [GeneralController::class, 'page'])->name('page');
 });
 
 Route::prefix('OAuth')->as('admin.')->middleware(['auth', 'role:admin'])->group(function () {
@@ -57,6 +57,6 @@ Route::prefix('OAuth')->as('admin.')->middleware(['auth', 'role:admin'])->group(
         'pages' => PageController::class,
         'post-categories' => PostCategoryController::class,
         'permissions' => PermissionController::class,
-        'site' => SiteController::class,
+        'sites' => SiteController::class,
     ]);
 });

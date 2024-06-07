@@ -13,6 +13,8 @@ class Page extends Model
         'title',
         'content',
         'slug',
+        'banner',
+        'resource'
     ];
 
 

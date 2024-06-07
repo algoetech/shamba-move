@@ -98,10 +98,10 @@
                             </li>
 
                             <li>
-                                <a href="{{route('admin.users.index')}}"
+                                <a href="{{route('admin.sites.index')}}"
                                     class="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700 ">
                                     <i class="fas fa-users text-slate-700"></i>
-                                    <span class="flex-1 ml-3 text-left whitespace-nowrap poppin" sidebar-toggle-item="">Users</span>
+                                    <span class="flex-1 ml-3 text-left whitespace-nowrap poppin" sidebar-toggle-item="">Site</span>
                                 </a>
                             </li>
 
