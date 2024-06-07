@@ -13,6 +13,11 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <style>
+        .ql-editor {
+            width: 100%;
+        }
+    </style>
     @yield('style')
 
     <!-- Scripts -->
@@ -21,6 +26,53 @@
 </head>
 
 <body class="antialiased poppin">
+
+    @if (session('message'))
+        <script type="module">
+            Swal.fire({
+                text: '{{ session('message') }}',
+                icon: 'error',
+                timer: 10000,
+                timerProgressBar: true,
+                toast: true,
+                position: 'center',
+                color: '#333',
+                showConfirmButton: true,
+                customClass: {
+                    container: 'bg-slate-300',
+                    htmlContainer: 'bg-slate-50'
+                },
+            });
+        </script>
+    @endif
+    @if (session('status'))
+        <script type="module">
+            Swal.fire({
+                text: '{{ session('status') }}',
+                icon: 'success',
+                timer: 5000,
+                timerProgressBar: true,
+                toast: true,
+                position: 'top-right',
+                color: '#333',
+                showConfirmButton: false,
+            });
+        </script>
+    @endif
+    @if (session('error'))
+        <script type="module">
+            Swal.fire({
+                text: '{{ session('error') }}',
+                icon: 'error',
+                timer: 5000,
+                timerProgressBar: true,
+                toast: true,
+                position: 'top-right',
+                color: '#333',
+                showConfirmButton: false,
+            });
+        </script>
+    @endif
     <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
         @include('layouts.navigation')
 
@@ -79,7 +131,33 @@
         </div>
     </div>
 
+    <script type="module">
+        var quill = new Quill('#editor', {
+            theme: 'snow',
+            modules: {
+                toolbar: [
+                    ['bold', 'italic', 'underline', 'strike'],
+                    [{ 'header': []}],
+                    [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+                    ['link', 'image', 'video'],
+                    ['blockquote', 'code-block'],
+                    [{ 'font': [] }],
+                    [{ 'size': [] }, 'clean'],
+                    [{ 'script': 'sub' }, { 'script': 'super' }],
+                    [{ 'indent': '-1' }, { 'indent': '+1' }],
+                    [{ 'direction': 'rtl' }],
+                    [{ 'align': [] },{ 'color': [] }, { 'background': [] }],
+
+                ]
+            }
+        });
+
+        {{$javascript}}
+
+
+    </script>
     <script src="{{asset('assets/js/admin/main.js')}}"></script>
+
     @isset($scripts)
         {{$scripts}}
     @endisset
