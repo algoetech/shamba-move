@@ -75,16 +75,7 @@
         </div>
     </section>
 
-    <!-- Latest footer -->
-    <footer class="sticky w-full p-5 pt-2 mt-2 bg-black/70 z-100 lg:min-h-120">
-        <div class="grid grid-cols-12">
-            <div class="flex col-start-1 sm:col-end-12 md:col-end-6 lg:col-end-4">
-                <img src="" alt="logo">
-                site message here
-            </div>
-        </div>
-        
-    </footer>
+   
 
     <script type="module">
         $(document).ready(function () {

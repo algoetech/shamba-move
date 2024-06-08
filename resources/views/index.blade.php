@@ -2,7 +2,7 @@
     @include('frontend.includes.nav')
 
     <!-- banner image -->
-    <div class="absolute top-0 w-full">
+    <div class="fixed top-0 w-full">
         <span id="overlay"
             class="w-full absolute h-[920px] bg-gradient-to-tr from-black/80 via-vendor-compliment-primary/60 to-vendor-compliment-primary">
         </span>
