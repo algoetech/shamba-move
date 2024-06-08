@@ -6,7 +6,7 @@
         <span id="overlay"
             class="w-full absolute h-[920px] bg-gradient-to-tr from-black/80 via-vendor-compliment-primary/60 to-vendor-compliment-primary">
         </span>
-       
+
         <img class="w-full" id="banner" src="{{$page->banner?url($page->banner):asset('assets/images/villages-farm.jpg')}}" alt="Farmer">
     </div>
     <section class="md:container sm:hidden mx-auto md:grid grid-cols-12 gap-4 relative z-100 lg:mt-[100px]  text-white">
@@ -53,29 +53,33 @@
     </section>
 
     <!-- section container here -->
-    <section class="container sticky grid w-full p-0 bg-white rounded-2 z-100">
-        
-        <div class="grid w-full grid-cols-12 px-4 py-8 mx-auto">
+    <section class="sticky grid w-full p-0 bg-white pb-30 rounded-0 z-100">
+
+        <div class="container grid w-full grid-cols-12 px-4 py-8 mx-auto">
+
             <div class="w-full col-start-1 col-end-13 p-3 text-justify md:col-end-8 bg-slate-200/10">
                 {!! $page->content !!}
             </div>
-            <div class="col-start-8 col-end-13 py-4 ml-10">
+            <div class="col-start-8 col-end-13 p-3 py-4 ml-10 bg-green-100/40 rounded-2 shadow-soft-sm">
                 <h3 class="pt-5 capitalize">Other pages.</h3>
-                <ul class="p-4 bg-white rounded-2 shadow-soft-sm me-10">
+                <ul class="p-4 border-t-2 border-vendor-secondary-beta me-10">
                     @foreach ($nonresource as $nopage)
-                    
-                    <li class="w-full">
-                        <a href="{{route('frontend.page', ['slug' => $nopage->slug])}}">{{$nopage->title}}</a>
-                    </li>
-                   
+                    <li class="flex items-center px-3 py-2 space-x-3 hover:bg-green-500/20 rounded-1 rtl:space-x-reverse">
+                        <svg class="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
+                           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5"/>
+                        </svg>
+                       <span class="capitalize "><a class="hover:scale-110 hover:text-vendor-secondary-alpha text-vendor-compliment-primary" href="{{route('frontend.page', ['slug' => $nopage->slug])}}">{{$nopage->title}}</a></span>
+                   </li>
+
+
                     @endforeach
-                    
+
                 </ul>
             </div>
         </div>
     </section>
 
-   
+    @include('layouts.footer')
 
     <script type="module">
         $(document).ready(function () {

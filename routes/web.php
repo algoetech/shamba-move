@@ -34,8 +34,6 @@ Route::prefix('OAuth')->middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
-
-
 //
 Route::group([
     'as' => 'frontend.',

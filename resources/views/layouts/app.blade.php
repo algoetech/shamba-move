@@ -123,6 +123,7 @@
                         </h1>
                     </div>
 
+                    <!-- slote -->
                 {{ $slot }}
                 </div>
 
@@ -156,7 +157,7 @@
         @isset($javascript)
             {{$javascript}}
         @endisset
-        
+
 
 
     </script>
