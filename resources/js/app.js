@@ -9,6 +9,7 @@ import $ from 'jquery';
 import jQuery from 'jquery';
 import ApexCharts from 'apexcharts';
 import Quill from 'quill';
+import { Carousel } from 'flowbite';
 
 import 'datatables.net-dt/css/dataTables.dataTables.min.css';
 
@@ -16,6 +17,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'datatables/media/css/jquery.dataTables.min.css';
 import 'quill/dist/quill.snow.css';
 import 'quill/dist/quill.core.css';
+import 'quill/dist/quill.bubble.css';
 
 
 window.Alpine = Alpine;
@@ -25,5 +27,6 @@ window.DataTables = DataTables;
 window.Swal = Swal;
 window.Quill = Quill;
 window.ApexCharts = ApexCharts;
+window.Carousel = Carousel;
 
 Alpine.start();

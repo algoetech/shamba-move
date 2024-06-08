@@ -48,7 +48,7 @@ class PostCategoryController extends Controller
             $postCategory->save();
 
             // Redirect to a specific route with a success message
-            return redirect()->route('admin.postCategories.index')->with('status', 'Post category created successfully.');
+            return redirect()->route('admin.post-categories.index')->with('status', 'Post category created successfully.');
         } catch (\Exception $e) {
             // Log the error
             Log::error('Error creating post category: ' . $e->getMessage());

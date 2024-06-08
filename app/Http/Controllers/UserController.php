@@ -38,7 +38,6 @@ class UserController extends Controller
     public function store(Request $request)
     {
         // return $request;
-        // Validate the incoming request data
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
@@ -50,7 +49,6 @@ class UserController extends Controller
         // return $request;
 
         try {
-            // Handle profile picture upload
             if ($request->hasFile('profile_picture')) {
                 $originalFilename = $request->file('profile_picture')->getClientOriginalName();
                 $timestamp = now()->timestamp;
@@ -69,7 +67,6 @@ class UserController extends Controller
                 'role_id' => $request->input('role'),
                 'profile_picture' => "storage/".$profilePicturePath,
             ]);
-            // Redirect to a specific route with a success message
             return redirect()->route('admin.users.index')->with('status', 'User added successful!');
 
         } catch (\Exception $th) {

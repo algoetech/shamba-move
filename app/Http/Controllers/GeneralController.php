@@ -38,11 +38,16 @@ class GeneralController extends Controller
     }
 
 
-    public function page($page){
-        $this->hasAccess('Post', 'read');
-        $user = User::where('id', '=', Auth::user()->id)->with(['role'])->get();
-        // dd($user->role->name);
-
-        return Auth::user();
+    public function page($slug){
+        $page = Page::where('slug', '=', $slug)->firstOrFail();
+        $articles = Article::all();
+        $posts = Post::all();
+        $post_categories = PostCategory::all();
+        $pages = Page::where('resource', '=', true)->get();
+        $nonresource = Page::where('resource', '=', false)->get();
+        $topics = Topic::all();
+        $sites = Site::all();
+        $topic_categories = TopicCategory::all();
+        return view('frontend.pages.pages', compact('articles', 'posts', 'nonresource', 'post_categories', 'pages', 'page', 'topics', 'topic_categories', 'sites'));
     }
 }

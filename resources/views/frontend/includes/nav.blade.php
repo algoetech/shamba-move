@@ -1,4 +1,5 @@
 <!-- Top Bar Nav -->
+{{-- <div class="fixed top-0 z-50 w-full"> --}}
 <nav class="sticky z-50 w-full py-4">
     <div class="container flex flex-wrap items-center justify-between w-full mx-auto">
         <span class="ml-3 ">
@@ -18,9 +19,10 @@
                 <i class="fas fa-phone mr-[2px]"></i>
                 Contacts
             </a>
-            <a href="" class="pl-4 transition-all delay-100 text-vendor-secondary-alpha/95 hover:text-orange-200 hover:scale-102 duration-400 ease-soft-out ">
+            <a href="" class="flex flex-row justify-center transition-all delay-100 justify text-vendor-secondary-alpha/95 hover:text-orange-200 hover:scale-102 duration-400 ease-soft-out ">
                 <i class="fas fa-images mr-[2px]"></i>
-                Media
+                
+                <span class="md:flex sm:hidden">Media</span>
             </a>
 
         </div>
@@ -35,10 +37,10 @@
             <li class="px-3 py-3 transition-all delay-150 border-t duration-450 ease-soft-in hover:border-t-2 hover:border-vendor-compliment-primary border-vendor-secondary-beta">
                 <a href="" class="py-4 text-slate-100 hover:text-vendor-secondary-beta">Home</a>
             </li>
-            @foreach ($pages as $page)
+            @foreach ($pages as $spage)
 
                 <li class="px-3 py-3 transition-all delay-150 border-t duration-450 ease-soft-in border-vendor-secondary-beta hover:border-t-2 hover:border-vendor-compliment-primary ">
-                    <a href="{{route('frontend.page', $page->slug)}}" class="py-4 text-slate-100 hover:text-vendor-secondary-beta">{{$page->title}}</a>
+                    <a href="{{route('frontend.page', $spage->slug)}}" class="py-4 text-slate-100 hover:text-vendor-secondary-beta">{{$spage->title}}</a>
                 </li>
 
             @endforeach
@@ -46,3 +48,4 @@
         </ul>
     </nav>
 </header>
+{{-- </div> --}}

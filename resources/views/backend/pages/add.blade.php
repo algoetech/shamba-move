@@ -16,23 +16,23 @@
             </div>
             <!-- Modal body -->
             <div class="p-4 md:p-5">
-              <form class="space-y-4" action="{{ route('admin.post-categories.store') }}" method="POST" enctype="multipart/form-data">
+              <form class="space-y-4" action="{{ route('admin.pages.store') }}" method="POST" enctype="multipart/form-data">
                   @csrf
                   @method('POST')
                   <div>
-                      <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Category Name</label>
-                      <input type="text" name="title" id="title" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Aman Tairo" value="{{ old('name') }}" required />
+                      <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Page Title</label>
+                      <input type="text" name="title" id="title" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="About Us" value="{{ old('name') }}" required />
                       @error('title')
                           <p class="mt-1 text-xs text-red-500">{{ $message }}</p>
                       @enderror
                   </div>
                   <div class="grid md:grid-cols-2 md:gap-6">
                     <div class="relative z-0 w-full mb-5 group">
-                        <input type="file" name="banner" id="banner" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-                        <label for="banner" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Banner Image<label>
+                        <input type="file" name="banner" id="banner" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " />
+                        <label for="banner" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Banner Image <sup class="text-rose-400">(optional)</sup><label>
                     </div>
-                    <div class="relative z-0 w-full px-5 mb-5 group lg:px-30">
-                        <input type="checkbox" name="resource" id="resource" class="block py-2.5 px-0 w-full text-sm text-green-600 md:mt-[30px] bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                    <div class="relative z-0 w-full px-5 mb-5 group">
+                        <input type="checkbox" name="resource" id="resource" class="block py-2.5 px-0 w-full text-sm text-green-600 md:mt-[30px] bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " />
                         <label for="resource" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 md:mt-[10px] duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Is A Resource</label>
                     </div>
                   </div>
@@ -43,7 +43,7 @@
                       <textarea name="content" id="contentInput" rows="4" class="hidden bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Enter user bio">{{ old('bio') }}</textarea>
                   </div>
 
-                  <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add Page</button>
+                  <button type="submit" class="w-full text-white bg-vendor-primary hover:bg-green-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add Page</button>
               </form>
 
             </div>
