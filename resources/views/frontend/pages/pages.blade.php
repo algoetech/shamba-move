@@ -70,8 +70,6 @@
                         </svg>
                        <span class="capitalize "><a class="hover:scale-110 hover:text-vendor-secondary-alpha text-vendor-compliment-primary" href="{{route('frontend.page', ['slug' => $nopage->slug])}}">{{$nopage->title}}</a></span>
                    </li>
-
-
                     @endforeach
 
                 </ul>
