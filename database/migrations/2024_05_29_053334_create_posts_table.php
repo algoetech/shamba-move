@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('post_category_id')->constrained('post_categories');
             $table->string('title');
             $table->string('slug')->unique();
+            $table->string('image', 80);
             $table->text('content');
             $table->integer('views')->default(0);
             $table->boolean('is_published')->default(false);

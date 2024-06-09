@@ -21,7 +21,7 @@
             </a>
             <a href="" class="flex flex-row justify-center transition-all delay-100 justify text-vendor-secondary-alpha/95 hover:text-orange-200 hover:scale-102 duration-400 ease-soft-out ">
                 <i class="fas fa-images mr-[2px]"></i>
-                
+
                 <span class="md:flex sm:hidden">Media</span>
             </a>
 
@@ -38,11 +38,11 @@
                 <a href="" class="py-4 text-slate-100 hover:text-vendor-secondary-beta">Home</a>
             </li>
             @foreach ($pages as $spage)
-
-                <li class="px-3 py-3 transition-all delay-150 border-t duration-450 ease-soft-in border-vendor-secondary-beta hover:border-t-2 hover:border-vendor-compliment-primary ">
-                    <a href="{{route('frontend.page', $spage->slug)}}" class="py-4 text-slate-100 hover:text-vendor-secondary-beta">{{$spage->title}}</a>
-                </li>
-
+                @if ($spage->resource)
+                    <li class="px-3 py-3 transition-all delay-150 border-t duration-450 ease-soft-in border-vendor-secondary-beta hover:border-t-2 hover:border-vendor-compliment-primary ">
+                        <a href="{{route('frontend.page', $spage->slug)}}" class="py-4 text-slate-100 hover:text-vendor-secondary-beta">{{$spage->title}}</a>
+                    </li>
+                @endif
             @endforeach
 
         </ul>

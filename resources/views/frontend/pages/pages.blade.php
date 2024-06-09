@@ -49,7 +49,7 @@
 
     <!-- section header here -->
     <section class="container relative w-full p-0 mt-20 align-middle rounded-2 z-100 ">
-        <h1 class="pt-20 pb-10 text-center text-vendor-secondary-beta">{{$page->title}}</h1>
+        <h1 class="pt-20 pb-10 font-bold text-center text-7xl text-vendor-secondary-beta tai-font">{{$page->title}}</h1>
     </section>
 
     <!-- section container here -->
@@ -61,18 +61,22 @@
                 {!! $page->content !!}
             </div>
             <div class="col-start-8 col-end-13 p-3 py-4 ml-10 bg-green-100/40 rounded-2 shadow-soft-sm">
-                <h3 class="pt-5 capitalize">Other pages.</h3>
+                <h3 class="pt-5 text-4xl capitalize tai-font">Other pages.</h3>
                 <ul class="p-4 border-t-2 border-vendor-secondary-beta me-10">
                     @foreach ($pages as $nopage)
                     @if (!$nopage->resource)
                     <li class="flex items-center px-3 py-2 space-x-3 hover:bg-green-500/20 rounded-1 rtl:space-x-reverse">
-                    <svg class="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
-                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5"/>
-                    </svg>
-                   <span class="capitalize "><a class="hover:scale-110 hover:text-vendor-secondary-alpha text-vendor-compliment-primary" href="{{route('frontend.page', ['slug' => $nopage->slug])}}">{{$nopage->title}}</a></span>
-               </li>
+                            <svg class="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5"/>
+                            </svg>
+                        <span class="capitalize ">
+                            <a class="hover:scale-110 hover:text-vendor-secondary-alpha text-vendor-compliment-primary" href="{{route('frontend.page', ['slug' => $nopage->slug])}}">
+                                {{$nopage->title}}
+                            </a>
+                        </span>
+                    </li>
                     @endif
-                    
+
                     @endforeach
 
                 </ul>

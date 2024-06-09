@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PageStoreRequest extends FormRequest
+class PostStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,10 +22,11 @@ class PageStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|string|max:255',
-            'content' => 'required|string',
-            'resource' => 'nullable|string',
-            'banner' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp,svg|max:2048'
+            'name' => ['required', 'string', 'min:5'],
+            'ispublic' => ['nullable'],
+            'category'	=> ['required', 'exists:post_categories,id'],
+            'description'	=> ['required'],
+            'image' => ['nullable', 'mimes:png,jpg', 'image'],
         ];
     }
 }

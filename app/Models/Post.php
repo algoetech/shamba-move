@@ -12,22 +12,26 @@ class Post extends Model
     use HasFactory, HasSlug;
 
     protected $fillable = [
-        'name',
+        'title',
         'slug',
-        'description'
+        'user_id',
+        'post_category_id',
+        'content',
+        'image',
+        'is_published'
     ];
 
     public function getSlugOptions() : SlugOptions
     {
         return SlugOptions::create()
-            ->generateSlugsFrom('name')
+            ->generateSlugsFrom('title')
             ->saveSlugsTo('slug')
             ->doNotGenerateSlugsOnUpdate()
             ->allowDuplicateSlugs()
             ->preventOverwrite();
     }
 
-    public function category(){
+    public function post_category(){
         return $this->belongsTo(PostCategory::class);
     }
 
