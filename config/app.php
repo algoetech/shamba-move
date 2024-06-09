@@ -182,6 +182,8 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
+        
+        // \Outhebox\LaravelTranslations\Http\Middleware\LanguageMiddleware::class,
 
         /*
          * Package Service Providers...

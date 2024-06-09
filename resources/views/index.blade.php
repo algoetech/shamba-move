@@ -18,9 +18,10 @@
                     April 25th, 2020
                 </p>
                 <p class="text-lg text-white">
-                    As a global advocate for the plant science industry,
+                    {{trans('Before proceeding, please check your email for a verification link.',['sw'])}}
+                    {{ __('ssAs a global advocate for the plant science industry,
                     CropLife International champions innovative technologies that enable farmers to sustainably increase
-                    productivity while managing the critical challenges facing our climate and the environment.
+                    productivity while managing the critical challenges facing our climate and the environment.')}}
                 </p>
                 <div class="grid items-end grid-cols-12 gap-4 text-left ">
                     <div class="col-span-4 col-start-8 text-center">

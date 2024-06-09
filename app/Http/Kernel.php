@@ -22,6 +22,9 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
+        // \Outhebox\LaravelTranslations\Http\Middleware\LanguageMiddleware::class,
+        // \Outhebox\TranslationsUI\Http\Middleware\Authenticate::class,
+        // \App\Http\Middleware\Localization::class
     ];
 
     /**
