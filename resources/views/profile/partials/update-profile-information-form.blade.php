@@ -17,13 +17,13 @@
         @csrf
         @method('patch')
 
-        <div>
+        <div class="max-w-xl">
             <x-input-label for="name" :value="__('Name')" />
             <x-text-input id="name" name="name" type="text" class="block w-full mt-1" :value="old('name', $user->name)" required autofocus autocomplete="name" />
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
         </div>
 
-        <div>
+        <div class="max-w-xl">
             <x-input-label for="email" :value="__('Email')" />
             <x-text-input id="email" name="email" type="email" class="block w-full mt-1" :value="old('email', $user->email)" required autocomplete="username" />
             <x-input-error class="mt-2" :messages="$errors->get('email')" />
@@ -37,7 +37,7 @@
                             {{ __('Click here to re-send the verification email.') }}
                         </button>
                     </p>
-<!-- lost 1 -->
+                <!-- lost 1 -->
                     @if (session('status') === 'verification-link-sent')
                         <p class="mt-2 text-sm font-medium text-green-600 dark:text-green-400">
                             {{ __('A new verification link has been sent to your email address.') }}

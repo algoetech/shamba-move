@@ -10,7 +10,7 @@
                 site Motto eee
             </span>
         </div>
-        <div class="flex w-full lg:col-span-4 md:col-span-6 sm:col-span-12 lg:px-4">
+        <div class="flex w-full lg:col-span-4 md:col-span-6 sm:col-span-12 lg:px-4 ">
             <span class="relative flex flex-col justify-center w-full">
                 <h4 class="text-4xl text-vendor-secondary-beta tai-font"><i class="mx-3 text-3xl fas fa-globe"></i>Our SiteMap</h4>
                 <hr data-content="Test" class="w-full m-0 opacity-100 tai-font hr text-vendor-secondary-beta">
@@ -19,8 +19,8 @@
                         @foreach ($pages as $page)
                             @if ($loop->index < 6)
                                 <li
-                                    class="flex items-center px-3 py-1 space-x-3 hover:bg-gray-500/20 rounded-1 rtl:space-x-reverse">
-                                    <i class="mr-2 fas fa-globe text-vendor-tertiary-alpha"></i>
+                                    class="flex items-center px-3 py-1 space-x-3 transition-all duration-200 ease-soft-in-out hover:bg-gray-500/20 rounded-1 rtl:space-x-reverse wow flipInY" data-wow-duration="1s" data-wow-delay="{{($loop->index+1)*0.4}}s">
+                                    <i class="mr-2 fas fa-paper-plane text-vendor-tertiary-alpha"></i>
                                     <span class="capitalize "><a
                                             class="hover:scale-110 hover:text-white text-vendor-secondary-alpha"
                                             href="{{ route('frontend.page', ['slug' => $page->slug]) }}">{{ $page->title }}</a></span>
@@ -33,7 +33,7 @@
                 </ul>
             </span>
         </div>
-        <div class="flex w-full lg:col-span-4 md:col-span-6 sm:col-span-12 lg:px-4">
+        <div class="flex w-full transition-all duration-200 ease-soft-in-out lg:col-span-4 md:col-span-6 sm:col-span-12 lg:px-4 wow slideInRight" data-wow-duration="1s" data-wow-delay="0.2s">
             <span class="relative flex flex-col justify-center w-full">
                 <h4 class="text-4xl text-vendor-secondary-beta tai-font"><i class="mx-3 text-3xl fas fa-phone lg:mr-5"></i>Our Contacts
                 </h4>

@@ -13,7 +13,7 @@ Shamba-Move is a Laravel-based platform designed to revolutionize agricultural p
 7. [License](#license)
 8. [Contact](#contact)
 
-## Introduction :smile:
+## Introduction
 
 Shamba-Move is an innovative platform designed to support the agricultural community by providing a comprehensive suite of tools and resources. It enables users to seek expert advice, access educational materials, and participate in a knowledge exchange system that fosters community learning and collaboration.
 

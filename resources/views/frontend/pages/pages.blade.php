@@ -36,14 +36,7 @@
         </div>
         <div
             class="flex-col hidden w-full px-4 py-3 text-right md:flex lg:col-start-9 lg:col-end-12 text-vendor-secondary-beta">
-            Arusha </br>
-            <small>Temp: &nwarrow; 30&deg; </small>
-            <div >
-                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 512 512">
-
-                    <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path>
-                  </svg>
-            </div>
+           <x-full-logo class="w-full"></x-full-logo>
         </div>
     </section>
 
@@ -57,7 +50,7 @@
 
         <div class="container grid w-full grid-cols-12 px-4 py-8 mx-auto">
 
-            <div class="w-full col-start-1 col-end-13 p-3 text-justify md:col-end-8 bg-slate-200/10">
+            <div class="w-full col-start-1 col-end-13 p-3 text-lg text-justify md:col-end-8 bg-slate-200/10 lora wow slideInUp" data-wow-duration="3s" data-wow-delay="1s">
                 {!! $page->content !!}
             </div>
             <div class="col-start-8 col-end-13 p-3 py-4 ml-10 bg-green-100/40 rounded-2 shadow-soft-sm">
@@ -65,7 +58,7 @@
                 <ul class="p-4 border-t-2 border-vendor-secondary-beta me-10">
                     @foreach ($pages as $nopage)
                     @if (!$nopage->resource)
-                    <li class="flex items-center px-3 py-2 space-x-3 hover:bg-green-500/20 rounded-1 rtl:space-x-reverse">
+                    <li class="flex items-center px-3 py-2 space-x-3 hover:bg-green-500/20 rounded-1 rtl:space-x-reverse wow flipInY" data-wow-duration="1s" data-wow-delay="{{($loop->index+1)*0.6}}s">
                             <svg class="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5"/>
                             </svg>
