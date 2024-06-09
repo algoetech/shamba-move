@@ -28,7 +28,7 @@ class GeneralController extends Controller
         $articles = Article::all();
         $posts = Post::all();
         $post_categories = PostCategory::all();
-        $pages = Page::where('resource', '=', true)->get();
+        $pages = Page::all();
         $topics = Topic::all();
         $sites = Site::all();
         $topic_categories = TopicCategory::all();
@@ -43,11 +43,10 @@ class GeneralController extends Controller
         $articles = Article::all();
         $posts = Post::all();
         $post_categories = PostCategory::all();
-        $pages = Page::where('resource', '=', true)->get();
-        $nonresource = Page::where('resource', '=', false)->get();
+        $pages = Page::all();
         $topics = Topic::all();
         $sites = Site::all();
         $topic_categories = TopicCategory::all();
-        return view('frontend.pages.pages', compact('articles', 'posts', 'nonresource', 'post_categories', 'pages', 'page', 'topics', 'topic_categories', 'sites'));
+        return view('frontend.pages.pages', compact('articles', 'posts', 'post_categories', 'pages', 'page', 'topics', 'topic_categories', 'sites'));
     }
 }

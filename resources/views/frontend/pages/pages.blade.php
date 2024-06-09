@@ -63,13 +63,16 @@
             <div class="col-start-8 col-end-13 p-3 py-4 ml-10 bg-green-100/40 rounded-2 shadow-soft-sm">
                 <h3 class="pt-5 capitalize">Other pages.</h3>
                 <ul class="p-4 border-t-2 border-vendor-secondary-beta me-10">
-                    @foreach ($nonresource as $nopage)
+                    @foreach ($pages as $nopage)
+                    @if (!$nopage->resource)
                     <li class="flex items-center px-3 py-2 space-x-3 hover:bg-green-500/20 rounded-1 rtl:space-x-reverse">
-                        <svg class="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
-                           <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5"/>
-                        </svg>
-                       <span class="capitalize "><a class="hover:scale-110 hover:text-vendor-secondary-alpha text-vendor-compliment-primary" href="{{route('frontend.page', ['slug' => $nopage->slug])}}">{{$nopage->title}}</a></span>
-                   </li>
+                    <svg class="flex-shrink-0 w-3.5 h-3.5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
+                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5"/>
+                    </svg>
+                   <span class="capitalize "><a class="hover:scale-110 hover:text-vendor-secondary-alpha text-vendor-compliment-primary" href="{{route('frontend.page', ['slug' => $nopage->slug])}}">{{$nopage->title}}</a></span>
+               </li>
+                    @endif
+                    
                     @endforeach
 
                 </ul>
