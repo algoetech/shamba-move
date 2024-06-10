@@ -26,6 +26,7 @@ class RoleMiddleware
         foreach ($roleNames as $role) {
             if (in_array($userRole, $roleNames) && $user->hasRole($role)) {
                 // dd($roles." ".$request->user()->role->name." ".$request->user()->hasRole($role));
+                // dd($request);
                 return $next($request);
             }
         }

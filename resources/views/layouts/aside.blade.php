@@ -65,13 +65,17 @@
 
                                 </ul>
                             </li>
+                            @can('read_pages')
                             <li>
                                 <a href="{{route('admin.pages.index')}}"
+
                                     class="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700 ">
                                     <i class="fas fa-users text-slate-700"></i>
                                     <span class="flex-1 ml-3 text-left whitespace-nowrap poppin" sidebar-toggle-item="">Pages</span>
                                 </a>
                             </li>
+                            @endcan
+
                             <li>
                                 <button type="button"
                                     class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700"
@@ -86,6 +90,7 @@
                                         <a href="{{route('admin.topic-categories.index')}}"
                                             class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Topic Categories</a>
                                     </li>
+
                                     <li>
                                         <a href="{{route('admin.topics.index')}}"
                                             class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Topics</a>
@@ -117,16 +122,13 @@
                                 <ul id="dropdown-settings" class="hidden py-2 space-y-2">
                                     <li>
                                         <a href="{{route('admin.roles.index')}}"
-                                            class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Topic Categories</a>
+                                            class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Roles</a>
                                     </li>
                                     <li>
                                         <a href="{{route('admin.permissions.index')}}"
-                                            class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Topics</a>
+                                            class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Permissions</a>
                                     </li>
-                                    <li>
-                                        <a href="{{route('admin.qnans.index')}}"
-                                            class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Questions</a>
-                                    </li>
+                                    
                                 </ul>
                             </li>
 

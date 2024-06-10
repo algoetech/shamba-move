@@ -42,7 +42,8 @@ Route::group([
  Route::get('/{slug}', [GeneralController::class, 'page'])->name('page');
 });
 
-Route::prefix('OAuth')->as('admin.')->middleware(['auth', 'role:admin'])->group(function () {
+
+Route::prefix('OAuth')->as('admin.')->middleware(['auth', 'role:admin|user|expert'])->group(function () {
     Route::resources([
         'users' => UserController::class,
         'articles' => ArticleController::class,
@@ -57,4 +58,6 @@ Route::prefix('OAuth')->as('admin.')->middleware(['auth', 'role:admin'])->group(
         'permissions' => PermissionController::class,
         'sites' => SiteController::class,
     ]);
+
+    Route::post('/permit/{role}/ability', [RoleController::class, 'closure'])->name('assign');
 });
