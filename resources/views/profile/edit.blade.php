@@ -21,7 +21,6 @@
                 </div>
             </div>
             @auth
-                {{-- {{auth()->user()->role->name}} --}}
                 @if (auth()->user()->role->name != 'admin')
                     <div class="p-4 bg-white shadow sm:p-8 dark:bg-gray-800 sm:rounded-lg">
                         <div class="max-w-xl">

@@ -21,6 +21,7 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @yield('styles')
 
         {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/quill/2.0.2/quill.core.js" integrity="sha512-uPt5Ro44E08ZJ4sXUROiw+xLSXECXFCj2fAwd1aarSjrotmjuZiMPV6I7s2wOxU8/Z9M0njcwFq4dHGPJcLQFg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/quill/2.0.2/quill.core.min.js" integrity="sha512-aDz65p6BL6tDCij/afEmGS72H2ZYsFmPvBz9/F6zO1L7SJ2TlGDyb4HOS6jXhX0j13kLtNrtc33n1Ry3338TKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> --}}
@@ -29,8 +30,9 @@
 
         {{ $slot }}
 
-        <script>
-            new WOW().init();
+        <script type="module">
+            const wow = new WOW();
+            wow.init();
         </script>
     </body>
 </html>

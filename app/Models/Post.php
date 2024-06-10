@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Psy\CodeCleaner\AssignThisVariablePass;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
@@ -33,6 +34,10 @@ class Post extends Model
 
     public function post_category(){
         return $this->belongsTo(PostCategory::class);
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 
     public function question(){

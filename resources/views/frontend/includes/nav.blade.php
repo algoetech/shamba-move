@@ -35,7 +35,7 @@
     <nav class="z-50 pr-5 text-right ">
         <ul class="z-50 flex flex-row justify-end text-right">
             <li class="px-3 py-3 transition-all delay-150 border-t duration-450 ease-soft-in hover:border-t-2 hover:border-vendor-compliment-primary border-vendor-secondary-beta">
-                <a href="" class="py-4 text-slate-100 hover:text-vendor-secondary-beta">Home</a>
+                <a href="{{route('ltu.login')}}" class="py-4 text-slate-100 hover:text-vendor-secondary-beta">Home</a>
             </li>
             @foreach ($pages as $spage)
                 @if ($spage->resource)
