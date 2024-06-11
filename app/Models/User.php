@@ -3,6 +3,8 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use App\RoleFilterHelper;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -100,6 +102,12 @@ class User extends Authenticatable
         return $userRole === $roles;
     }
 
+    public function hasAccess($action){
+        if ($this->role->hasPermission($action)) {
+            return true;
+        }
+        return false;
+    }
 
 
  }

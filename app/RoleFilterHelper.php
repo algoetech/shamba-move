@@ -24,7 +24,6 @@ trait RoleFilterHelper
      * @return boolean
      */
     public function hasAccess($action){
-        // dd(auth()->user()->role->hasPermission('User_create'), $action);
         abort_unless(auth()->user()->role->hasPermission($action), Response::HTTP_FORBIDDEN, 'You do not have permission on this');
     }
 }

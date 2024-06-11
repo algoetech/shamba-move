@@ -39,8 +39,9 @@
             </li>
             @foreach ($pages as $spage)
                 @if ($spage->resource)
-                    <li class="px-3 py-3 transition-all delay-150 border-t duration-450 ease-soft-in border-vendor-secondary-beta hover:border-t-2 hover:border-vendor-compliment-primary ">
+                    <li class="relative px-3 py-3 transition-all delay-150 border-t group duration-450 ease-soft-in border-vendor-secondary-beta hover:border-t-2 hover:border-vendor-compliment-primary ">
                         <a href="{{route('frontend.page', $spage->slug)}}" class="py-4 text-slate-100 hover:text-vendor-secondary-beta">{{$spage->title}}</a>
+                        {{-- <hr data-content="Test" class="w-full m-0 text-transparent opacity-100 group-hover:after:from-transparent group-hover:after:via-vendor-secondary-beta group-hover:after:to-transparent text-start tai-font hr group-hover:text-vendor-secondary-beta"> --}}
                     </li>
                 @endif
             @endforeach

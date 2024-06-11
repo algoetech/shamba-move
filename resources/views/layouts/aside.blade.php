@@ -65,6 +65,8 @@
 
                                 </ul>
                             </li>
+@hasaccess('Page_read')
+
 
                             <li>
                                 <a href="{{route('admin.pages.index')}}"
@@ -74,7 +76,7 @@
                                     <span class="flex-1 ml-3 text-left whitespace-nowrap poppin" sidebar-toggle-item="">Pages</span>
                                 </a>
                             </li>
-                            
+@endhasaccess
 
                             <li>
                                 <button type="button"

@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,6 +20,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
-    }
+        Blade::directive('hasaccess',function ($permission) {
+            return "<?php if (\Illuminate\Support\Facades\Auth::check() && \Illuminate\Support\Facades\Auth::user()->hasAccess($permission)) : ?>";
+});
+
+Blade::directive('endhasaccess', function () {
+return "<?php endif; ?>";
+});
+}
 }
