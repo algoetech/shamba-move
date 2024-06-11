@@ -107,14 +107,12 @@ class UserController extends Controller
             'email' => 'required|string|email|max:255|unique:users,email,' . $id,
             'role' => 'required|exists:roles,id',
             'bio' => 'nullable|string',
-            'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp,svg|max:2048',
         ]);
 
         try {
-            // Find the user by ID
             $user = User::findOrFail($id);
 
-            // Update user's details
             $user->name = $request->name;
             $user->email = $request->email;
             $user->role_id = $request->role;
@@ -122,7 +120,6 @@ class UserController extends Controller
 
 
             if ($request->hasFile('profile_picture')) {
-                // Delete the old profile picture if it exists
                 if ($user->profile_picture) {
                     Storage::disk('public')->delete($user->profile_picture);
                 }
@@ -132,16 +129,12 @@ class UserController extends Controller
                 $user->profile_picture = $profilePicturePath;
             }
 
-            // Save the updated user details
             $user->update();
 
-            // Redirect to a specific route with a success message
             return redirect()->route('admin.users.index')->with('status', 'User updated successfully.');
         } catch (\Exception $e) {
-            // Log the error
             Log::error('Error updating user: ' . $e->getMessage());
 
-            // Redirect back with an error message
             return redirect()->back()->with('error', 'There was an error updating the user. Please try again.')->withInput();
         }
     }

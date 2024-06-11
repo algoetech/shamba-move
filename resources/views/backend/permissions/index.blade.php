@@ -14,11 +14,15 @@
             <button type="button" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal"
                 class="px-5 py-2 mb-2 text-sm font-medium text-white bg-green-600 rounded-lg focus:outline-none hover:bg-green-800 focus:ring-5 focus:ring-green-300 me-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
                 <i class="mr-2 text-gray-200 fas fa-plus"></i>
-                role
+                Permission
             </button>
         </div>
 
-        @include('backend.roles.add')
+        @include('backend.permissions.add')
+        {{-- @php
+            var_dump($permissions);
+        @endphp --}}
+
 
         <div class="relative overflow-x-auto sm:rounded-lg">
             <table class="w-full text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400">
@@ -31,9 +35,7 @@
                                 <label for="checkbox-all-search" class="sr-only">checkbox</label>
                             </div>
                         </th>
-                        <th scope="col" class="px-6 py-3">
-                            Role
-                        </th>
+
                         <th scope="col" class="px-6 py-3">
                             Permissions
                         </th>
@@ -46,7 +48,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($roles as $role)
+                    @foreach ($permissions as $permission)
                     <tr
                         class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                         <td class="w-4 p-4">
@@ -57,40 +59,31 @@
                             </div>
                         </td>
                         <td class="px-6 py-4">
-                            {{ $role->name }}
+                            {{ $permission->name }}
                         </td>
                         <td class="px-6 py-4">
-
-                            {{ $role->permissions->count() }}
-                        </td>
-                        <td class="px-6 py-4">
-                            {{$role->guard_name}}
+                            {{$permission->guard_name}}
                         </td>
 
 
                         <td class="px-6 py-4 text-right">
                             <div class="flex flex-row gap-2 ">
-                                <a href="{{route('admin.roles.edit', $role->id)}}"
+                                <a href="{{route('admin.permissions.edit', $permission->id)}}"
                                     class="font-medium text-blue-600 dark:text-blue-500 hover:underline group hover:scale-110">
                                     <i class="mx-2 text-blue-500 fas fa-edit group-hover:scale-102"></i>
                                 </a>
 
-                                <form action="{{route('admin.roles.destroy', $role->id)}}" method="post">
+                                <form action="{{route('admin.permissions.destroy', $permission->id)}}" method="post">
                                     @csrf
                                     @method('DELETE')
-                                    <input type="hidden" name="roleid" value="{{$role->id}}" />
+                                    <input type="hidden" name="permissionid" value="{{$permission->id}}" />
                                     <button type="submit" class="group hover:scale-110"
                                         onclick="return confirm('Are you sure You want to do this!');">
                                         <i class="mx-2 fas fa-trash-can text-rose-400 group-hover:scale-102"></i>
                                     </button>
                                 </form>
 
-                                <button type="button" data-modal-target="permit-{{$role->name}}-modal" data-modal-toggle="permit-{{$role->name}}-modal"
-                                    class="px-5 py-1 mb-2 text-3xl font-medium text-white bg-green-600 rounded-lg text-s tai-font focus:outline-none hover:bg-green-800 focus:ring-5 focus:ring-green-300 me-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
-                                    <i class="mr-2 text-gray-200 fas fa-plus"></i>
-                                    Permit
-                                </button>
-                                @include('backend.roles.permit')
+
 
                             </div>
 

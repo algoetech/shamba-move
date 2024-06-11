@@ -10,6 +10,8 @@ class Permission extends ModelsPermission
 {
     use HasFactory;
 
+    
+
     public function role() {
         return $this->belongsTo(Role::class);
     }

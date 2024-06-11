@@ -11,9 +11,7 @@ use Illuminate\Support\Str;
 
 class PageController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
         $pages = Page::all();
@@ -21,17 +19,7 @@ class PageController extends Controller
         return view('backend.pages.index', compact('pages', 'title'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(PageStoreRequest $request)
     {
 
@@ -66,17 +54,7 @@ class PageController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Page $page)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
 
@@ -85,9 +63,7 @@ class PageController extends Controller
         return view('backend.pages.edit', compact('page', 'title'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+
     public function update(PageStoreRequest $request,  string $id)
     {
         try {
@@ -105,9 +81,7 @@ class PageController extends Controller
         }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+
     public function destroy(string $id)
     {
         try {
@@ -120,10 +94,8 @@ class PageController extends Controller
 
             return redirect()->route('admin.pages.index')->with('status', 'Page deleted successfully.');
         } catch (\Exception $e) {
-            // Log the error
             Log::error('Error deleting page: ' . $e->getMessage());
 
-            // Redirect back with an error message
             return redirect()->route('admin.pages.index')->with('error', 'There was an error deleting the page. Please try again.');
         }
     }
