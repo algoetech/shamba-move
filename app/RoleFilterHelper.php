@@ -5,7 +5,7 @@ namespace App;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Undocumented trait
@@ -23,12 +23,8 @@ trait RoleFilterHelper
      * @param string $action
      * @return boolean
      */
-    public function hasAccess($model, $action){
-        $role = Role::where('id', '=', Auth::user()->role_id)->with('permissions')->get();
-        dd($role->permissions);
-        if (Auth::check() && $role->permissions->action == $action && Auth::user()->role->permission->model == $model) {
-            return true;
-        }
-        return false;
+    public function hasAccess($action){
+        // dd(auth()->user()->role->hasPermission('User_create'), $action);
+        abort_unless(auth()->user()->role->hasPermission($action), Response::HTTP_FORBIDDEN, 'You do not have permission on this');
     }
 }

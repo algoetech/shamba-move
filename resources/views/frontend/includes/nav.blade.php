@@ -11,9 +11,9 @@
 
 
         <div class="flex items-center pr-6 text-white no-underline poppin-light ">
-            <a href="{{ route('login') }}" class="transition-all delay-100 text-vendor-secondary-alpha/95 hover:text-orange-200 hover:scale-102 duration-400 ease-soft-out">
+            <a href="{{ Auth::user()?route('dashboard'):route('login') }}" class="transition-all delay-100 text-vendor-secondary-alpha/95 hover:text-orange-200 hover:scale-102 duration-400 ease-soft-out">
                 <i class="fas fa-user mr-[2px]"></i>
-                Member
+                {{ Auth::user()?__(Auth::user()->name):trans('Member') }}
             </a>
             <a href="" class="pl-4 transition-all delay-100 text-vendor-secondary-alpha/95 hover:text-orange-200 hover:scale-102 duration-400 ease-soft-out ">
                 <i class="fas fa-phone mr-[2px]"></i>

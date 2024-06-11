@@ -10,7 +10,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Permission;
-use Spatie\Permission\Models\Role;
+// use Spatie\Permission\Models\Role;
 use Spatie\Permission\Traits\HasRoles;
 
 /**
@@ -64,7 +64,7 @@ class User extends Authenticatable
     /**
      * Get the attributes that should be cast.
      *
-     * 
+     *
      * @return array<string, string>
      */
     protected function casts(): array

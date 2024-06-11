@@ -14,15 +14,14 @@ class PageController extends Controller
 
     public function index()
     {
+        $this->hasAccess('Page_read');
         $pages = Page::all();
         $title = "Pages";
         return view('backend.pages.index', compact('pages', 'title'));
     }
 
-
     public function store(PageStoreRequest $request)
     {
-
         try {
             $page = new Page();
 
@@ -43,21 +42,17 @@ class PageController extends Controller
 
             $page->save();
 
-            // return $page;
             return redirect()->route('admin.pages.index')->with('status', 'Page was created successfully.');
 
         } catch (\Exception $e) {
             Log::error('Error creating post category: ' . $e->getMessage());
             return redirect()->back()->with('error', $e->getMessage())->withInput();
         }
-
-
     }
 
 
     public function edit(string $id)
     {
-
         $page = Page::where('id', '=', $id)->firstOrFail();
         $title = $page->title;
         return view('backend.pages.edit', compact('page', 'title'));
