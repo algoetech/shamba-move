@@ -1,12 +1,5 @@
 @section('styles')
-    <style>
-        .delta.z-10 {
-            display: none;
-            visibility: hidden;
-            opacity: 0;
-        }
-
-    </style>
+    
 @endsection
 <x-front>
     @include('frontend.includes.nav')

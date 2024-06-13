@@ -2,15 +2,15 @@
 <footer class="sticky w-full pt-2 mt-0 bg-black/70 z-100 lg:min-h-120">
     <div class="container grid w-full grid-flow-row grid-cols-12 p-5 mt-5 lg:mt-10 auto-rows-max">
 
-        <div class="flex w-full lg:col-span-4 md:col-span-6 sm:col-span-12 lg:px-4 lg:pr-8">
+        <div class="flex w-full lg:col-span-4 md:col-span-6 sm:col-span-12 kiswaswadu:col-span-full lg:px-4 lg:pr-8">
 
-            <span class="relative flex flex-col w-full ">
+            <span class="relative flex flex-col w-full p-2 px-3">
                 <h4 class="text-4xl text-vendor-secondary-beta tai-font"><i class="mx-3 text-3xl fas fa-globe"></i>Our Motto.</h4>
                 <hr data-content="Test" class="w-full m-0 opacity-100 tai-font hr text-vendor-secondary-beta">
-                site Motto eee
+                site Motto Eeeh
             </span>
         </div>
-        <div class="flex w-full lg:col-span-4 md:col-span-6 sm:col-span-12 lg:px-4 ">
+        <div class="flex w-full md-max:my-4 lg:col-span-4 md:col-span-6 sm:col-span-12 col-span-full lg:px-4">
             <span class="relative flex flex-col justify-center w-full">
                 <h4 class="text-4xl text-vendor-secondary-beta tai-font"><i class="mx-3 text-3xl fas fa-globe"></i>Our SiteMap</h4>
                 <hr data-content="Test" class="w-full m-0 opacity-100 tai-font hr text-vendor-secondary-beta">
@@ -33,7 +33,7 @@
                 </ul>
             </span>
         </div>
-        <div class="flex w-full transition-all duration-200 ease-soft-in-out lg:col-span-4 md:col-span-6 sm:col-span-12 lg:px-4 wow slideInRight" data-wow-duration="1s" data-wow-delay="0.2s">
+        <div class="flex w-full transition-all duration-200 md-max:mb-[30px] col-span-full ease-soft-in-out lg:col-span-4 md:col-span-6 sm:col-span-12 lg:px-4 wow slideInRight" data-wow-duration="1s" data-wow-delay="0.2s">
             <span class="relative flex flex-col justify-center w-full">
                 <h4 class="text-4xl text-vendor-secondary-beta tai-font"><i class="mx-3 text-3xl fas fa-phone lg:mr-5"></i>Our Contacts
                 </h4>

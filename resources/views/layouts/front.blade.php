@@ -21,6 +21,14 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <style>
+            .delta.z-10 {
+                display: none;
+                visibility: hidden;
+                opacity: 0;
+            }
+
+        </style>
         @yield('styles')
 
         {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/quill/2.0.2/quill.core.js" integrity="sha512-uPt5Ro44E08ZJ4sXUROiw+xLSXECXFCj2fAwd1aarSjrotmjuZiMPV6I7s2wOxU8/Z9M0njcwFq4dHGPJcLQFg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
