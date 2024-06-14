@@ -38,7 +38,7 @@
                 <a href="{{url('/')}}" class="py-4 text-slate-100 hover:text-vendor-secondary-beta">Home</a>
             </li>
             <li class="relative px-3 py-3 transition-all delay-150 border-t group duration-450 ease-soft-in border-vendor-secondary-beta hover:border-t-2 hover:border-vendor-compliment-primary ">
-                <a href="#" class="py-4 text-slate-100 hover:text-vendor-secondary-beta">Posts</a>
+                <a href="{{route('categories')}}" class="py-4 text-slate-100 hover:text-vendor-secondary-beta">Posts</a>
                 {{-- <hr data-content="Test" class="w-full m-0 text-transparent opacity-100 group-hover:after:from-transparent group-hover:after:via-vendor-secondary-beta group-hover:after:to-transparent text-start tai-font hr group-hover:text-vendor-secondary-beta"> --}}
             </li>
             @foreach ($pages as $spage)

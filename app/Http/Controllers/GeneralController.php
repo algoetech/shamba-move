@@ -49,4 +49,18 @@ class GeneralController extends Controller
         $topic_categories = TopicCategory::all();
         return view('frontend.pages.pages', compact('articles', 'posts', 'post_categories', 'pages', 'page', 'topics', 'topic_categories', 'sites'));
     }
+
+
+    public function post_categories(){
+        // return "aman";
+        $articles = Article::all();
+        $posts = Post::all();
+        $title = "Post categories";
+        $post_categories = PostCategory::all();
+        $pages = Page::all();
+        $topics = Topic::all();
+        $sites = Site::all();
+        $topic_categories = TopicCategory::all();
+        return view('frontend.pages.post-categories', compact('articles', 'title', 'posts', 'post_categories', 'pages', 'topics', 'topic_categories', 'sites'));
+    }
 }
