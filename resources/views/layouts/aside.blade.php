@@ -107,7 +107,7 @@
                                 </ul>
                             </li>
 
-
+                            @hasaccess('Site_update')
                             <li>
                                 <button type="button"
                                     class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700"
@@ -118,17 +118,23 @@
                                     <i class="text-blue-700 fas fa-angle-down"></i>
                                 </button>
                                 <ul id="dropdown-settings" class="hidden py-2 space-y-2">
+
+                                    @hasaccess('Role_read')
                                     <li>
                                         <a href="{{route('admin.roles.index')}}"
                                             class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Roles</a>
                                     </li>
+                                    @endhasaccess
+                                    @hasaccess('Permission_read')
                                     <li>
                                         <a href="{{route('admin.permissions.index')}}"
                                             class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Permissions</a>
                                     </li>
+                                    @endhasaccess
 
                                 </ul>
                             </li>
+                            @endhasaccess
 
 
 

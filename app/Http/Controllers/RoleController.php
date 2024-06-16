@@ -15,6 +15,7 @@ class RoleController extends Controller
      */
     public function index()
     {
+        $this->hasAccess('Role_read');
         $roles = Role::all();
         $title = "Roles";
         $permissions = Permission::all();

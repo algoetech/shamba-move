@@ -41,6 +41,7 @@
         <script type="module">
             const wow = new WOW();
             wow.init();
+            $('#errobag').height($('#contexter').height());
 
             $('#toggleFrontSidebarMobile').on('click', function(e){
                 e.preventDefault();

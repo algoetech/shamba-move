@@ -72,6 +72,10 @@ class PageController extends Controller
         }
     }
 
+    public function show(string $page){
+       return redirect()->route('admin.pages.index')->with('message', "{$page} can not be shown!");
+    }
+
 
     public function edit(string $id)
     {
