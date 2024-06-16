@@ -22,7 +22,7 @@
         @hasaccess('Post_read')
             <div class="flex flex-col justify-center w-full col-span-6 p-3 bg-gray-200 md:col-span-4 lg:col-span-3 rounded-3 shadow-soft-lg">
                 <span class="flex p-1 text-4xl poppin">Posts</span>
-                <span class="flex p-1 text-3xl poppin">{{$posts->count()}}</span>
+                <span class="flex p-1 text-3xl poppin">{{(Auth::user()->role->name == 'admin')?$posts->count():Auth::user()->posts->count()}}</span>
                 <span class="flex p-1 lora">
                     <a href="{{route('admin.posts.index')}}" class="flex flex-row items-center p-2 px-4 text-white bg-vendor-compliment-primary rounded-2 shadow-soft-xl hover:bg-green-700">
                         <i class="mx-2 fas fa-pager"></i> Posts
@@ -58,7 +58,7 @@
         @hasaccess('TopicCategory_read')
             <div class="flex flex-col justify-center w-full col-span-6 p-3 bg-gray-200 md:col-span-4 lg:col-span-3 rounded-3 shadow-soft-lg">
                 <span class="flex p-1 text-3xl poppin">Topic Category</span>
-                <span class="flex p-1 text-3xl poppin">{{$topicCategories->count()}}</span>
+                <span class="flex p-1 text-3xl poppin">{{(Auth::user()->role->name == 'admin')?$topicCategories->count():$topicCategories->count()}}</span>
                 <span class="flex p-1 lora">
                     <a href="{{route('admin.topic-categories.index')}}" class="flex flex-row items-center p-2 px-4 text-white bg-vendor-compliment-primary rounded-2 shadow-soft-xl hover:bg-green-700">
                         <i class="mx-2 fab fa-hubspot "></i> Topics Category

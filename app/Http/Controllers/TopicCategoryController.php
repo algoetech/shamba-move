@@ -12,7 +12,7 @@ class TopicCategoryController extends Controller
      */
     public function index()
     {
-        //
+        return view('');
     }
 
     /**
@@ -31,13 +31,6 @@ class TopicCategoryController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(TopicCategory $topicCategory)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.

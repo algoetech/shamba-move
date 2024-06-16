@@ -31,13 +31,7 @@ class SubscriberController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Subscriber $subscriber)
-    {
-        //
-    }
+   
 
     /**
      * Show the form for editing the specified resource.

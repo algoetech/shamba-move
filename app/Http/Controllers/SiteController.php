@@ -31,13 +31,7 @@ class SiteController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Site $site)
-    {
-        //
-    }
+   
 
     /**
      * Show the form for editing the specified resource.

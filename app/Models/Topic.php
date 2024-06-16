@@ -28,6 +28,8 @@ class Topic extends Model
             ->preventOverwrite();
     }
 
-
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 
 }

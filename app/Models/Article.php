@@ -15,6 +15,8 @@ class Article extends Model
         'name',
         'content',
         'summary',
+        'post_id',
+        'user_id'
     ];
 
     public function getSlugOptions() : SlugOptions
@@ -25,5 +27,13 @@ class Article extends Model
             ->doNotGenerateSlugsOnUpdate()
             ->allowDuplicateSlugs()
             ->preventOverwrite();
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+
+    public function post(){
+        return $this->belongsTo(Post::class);
     }
 }

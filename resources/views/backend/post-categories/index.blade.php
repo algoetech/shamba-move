@@ -9,7 +9,7 @@
     </x-slot>
 
     <div class="px-4 py-3 mx-5 mb-10 border-t-2 border-green-400 col-span-full rounded-5 shadow-soft-2xl">
-
+        @hasaccess('PostCategory_create')
         <div class="flex justify-end w-full">
             <button type="button" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal"
                 class="px-5 py-2 mb-2 text-sm font-medium text-white bg-green-600 rounded-lg focus:outline-none hover:bg-green-800 focus:ring-5 focus:ring-green-300 me-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
@@ -17,6 +17,7 @@
                 Post Category
             </button>
         </div>
+        @endhasaccess
 
         @include('backend.post-categories.add')
 
@@ -40,9 +41,11 @@
                         <th scope="col" class="px-6 py-3">
                             Posts
                         </th>
+                        @hasaccess('PostCategory_update')
                         <th scope="col" class="px-6 py-3">
                             Actions
                         </th>
+                        @endhasaccess
                     </tr>
                 </thead>
                 <tbody>
@@ -66,6 +69,7 @@
                             {{ $cate->posts->count() }}
                         </td>
 
+                        @hasaccess('PostCategory_update')
                         <td class="px-6 py-4 text-right">
                             <div class="flex flex-row gap-2 ">
                                 <a href="{{route('admin.post-categories.edit', $cate->id)}}"
@@ -73,6 +77,7 @@
                                     <i class="mx-2 text-blue-500 fas fa-edit group-hover:scale-102"></i>
                                 </a>
 
+                                @hasaccess('PostCategory_delete')
                                 <form action="{{route('admin.post-categories.destroy', $cate->id)}}" method="post">
                                     @csrf
                                     @method('DELETE')
@@ -82,10 +87,12 @@
                                         <i class="mx-2 fas fa-trash-can text-rose-400 group-hover:scale-102"></i>
                                     </button>
                                 </form>
+                                @endhasaccess
 
                             </div>
 
                         </td>
+                        @endhasaccess
 
                     </tr>
                     @endforeach

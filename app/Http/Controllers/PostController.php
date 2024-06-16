@@ -67,13 +67,7 @@ class PostController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Post $post)
-    {
-        //
-    }
+    
 
     /**
      * Show the form for editing the specified resource.
@@ -98,6 +92,15 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        try {
+            $post = Post::findOrFail($post);
+            $post->delete();
+
+            return redirect()->back()->with('status', 'Post was deleted successfully.');
+        } catch (\Exception $e) {
+            Log::error('Error deleting Post Category: ' . $e->getMessage());
+
+            return redirect()->back()->with('error', 'There was an error deleting this Post . Please try again.');
+        }
     }
 }

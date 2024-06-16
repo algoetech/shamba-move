@@ -57,14 +57,7 @@ class RoleController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Role $role)
-    {
-        //
-    }
-
+   
     /**
      * Show the form for editing the specified resource.
      */
