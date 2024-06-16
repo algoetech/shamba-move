@@ -34,13 +34,20 @@
         {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/quill/2.0.2/quill.core.js" integrity="sha512-uPt5Ro44E08ZJ4sXUROiw+xLSXECXFCj2fAwd1aarSjrotmjuZiMPV6I7s2wOxU8/Z9M0njcwFq4dHGPJcLQFg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/quill/2.0.2/quill.core.min.js" integrity="sha512-aDz65p6BL6tDCij/afEmGS72H2ZYsFmPvBz9/F6zO1L7SJ2TlGDyb4HOS6jXhX0j13kLtNrtc33n1Ry3338TKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> --}}
     </head>
-    <body class="antialiased text-gray-900 poppin">
+    <body class="overflow-x-hidden antialiased text-gray-900 poppin" id="contexter">
 
         {{ $slot }}
 
         <script type="module">
             const wow = new WOW();
             wow.init();
+
+            $('#toggleFrontSidebarMobile').on('click', function(e){
+                e.preventDefault();
+                $(this).parent().toggleClass('z-[300]');
+                $('#mobileMenu').toggleClass('md-max:translate-x-[256px]').toggleClass('z-[300]');
+                $('#menu-overlay').height($('#contexter').height()).toggleClass('hidden block');
+            });
         </script>
     </body>
 </html>

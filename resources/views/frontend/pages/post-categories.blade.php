@@ -123,7 +123,8 @@
             </div>
             <div class="grid w-full grid-cols-12 gap-4 col-span-full">
                 @foreach ($post_categories as $category )
-                    <div class="relative p-3 overflow-hidden bg-slate-100/50 shadow-soft-xl sm-max:col-span-full md:col-span-6 lg:col-span-4 rounded-2">
+                    <div class="relative col-span-12 p-3 overflow-hidden bg-slate-100/50 shadow-soft-xl sm-max:col-span-full md:col-span-6 lg:col-span-4 rounded-2 wow fadeInUp"
+                    data-wow-duration="1s" data-wow-delay="{{($loop->index+1)*0.4}}s">
                         <span><h4>{{__($category->name)}}</h4></span>
                         <div class="py-3 font-bold text-justify lora">
                             @php
@@ -141,11 +142,21 @@
                                 </div>
                             @endforeach
                             {!!__($category->description)!!}
+                            <div class="absolute bottom-0 left-0 flex items-center justify-between w-full p-5 px-3 bg-gray-300">
+                                <div>
+                                 <span class="p-2 px-3 text-white rounded-circle bg-vendor-secondary-beta">{{$category->posts->count()}}</span> &nbsp;Posts
+                                </div>
+                                <span>
+                                    <a href="{{ route('cateshows', ['slug' => $category->slug]) }}" class="p-2 px-3 text-white bg-green-500 hover:bg-green-600 rounded-2 shadow-soft-xl">
+                                        Show More!
+                                    </a>
+                                </span>
+                            </div>
                         </div>
                     </div>
                 @endforeach
             </div>
-          
+
         </div>
     </section>
 

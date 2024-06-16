@@ -3,7 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PageStoreRequest;
+use App\Models\Article;
 use App\Models\Page;
+use App\Models\Permission;
+use App\Models\Post;
+use App\Models\PostCategory;
+use App\Models\Role;
+use App\Models\Topic;
+use App\Models\TopicCategory;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
@@ -11,6 +19,20 @@ use Illuminate\Support\Str;
 
 class PageController extends Controller
 {
+    public function dashboard(){
+        $users = User::all();
+        $posts = Post::all();
+        $postCategories = PostCategory::all();
+        $topics = Topic::all();
+        $roles = Role::all();
+        $pages = Page::all();
+        $permissions = Permission::all();
+        $topicCategories = TopicCategory::all();
+        $articles = Article::all();
+
+        return view('dashboard',  compact('users', 'pages', 'posts', 'postCategories', 'topics', 'roles', 'permissions', 'topicCategories', 'articles'));
+
+    }
 
     public function index()
     {

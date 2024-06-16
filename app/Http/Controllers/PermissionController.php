@@ -88,6 +88,15 @@ class PermissionController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            $permission = Permission::findOrFail($id);
+            $permission->delete();
+
+            return redirect()->back()->with('status', 'Permission deleted successfully.');
+        } catch (\Exception $e) {
+            Log::error('Error deleting Permission: ' . $e->getMessage());
+
+            return redirect()->back()->with('error', 'There was an error deleting this permission. Please try again.');
+        }
     }
 }

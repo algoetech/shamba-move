@@ -22,16 +22,19 @@ use Illuminate\Support\Facades\Route;
 // Auth::routes();
 Route::get('/', [GeneralController::class, 'index'])->name('index');
 
-Route::prefix('OAuth')->get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::prefix('OAuth')->get('/dashboard', [PageController::class, 'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('/categs', [GeneralController::class, 'post_categories'])->name('categories');
+Route::get('/categs/{slug}', [GeneralController::class, 'category_show'])->name('cateshows');
+
+
+
 
 Route::prefix('OAuth')->middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
 
 require __DIR__.'/auth.php';
 

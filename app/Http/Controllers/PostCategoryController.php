@@ -21,17 +21,7 @@ class PostCategoryController extends Controller
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         // return $request for postCategory;
@@ -58,17 +48,7 @@ class PostCategoryController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(PostCategory $postCategory)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
+    
     public function edit(string $id)
     {
         $postCategory = PostCategory::where('id', '=', $id)->firstOrFail();
@@ -90,12 +70,12 @@ class PostCategoryController extends Controller
 
         try {
             $postCategory = PostCategory::findOrFail($id);
-            
+
             $postCategory->name = $request->name;
             $postCategory->description = $request->description;
 
             $postCategory->update();
-            
+
             return redirect()->route('admin.post-categories.index')->with('status', 'Post Category updated successfully.');
         } catch (\Exception $e) {
             Log::error('Error updating user: ' . $e->getMessage());

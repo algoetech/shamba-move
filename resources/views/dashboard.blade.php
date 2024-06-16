@@ -4,71 +4,105 @@
 @endsection
 
 <x-app-layout>
-    <!-- Right Content -->
-    <div class="col-span-full xl:col-auto">
-        <div
-            class="p-4 mb-4 space-y-6 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
-            <div
-                class="px-4 py-2 text-gray-400 border border-gray-200 border-dashed rounded dark:border-gray-600">
-                <h3>Card header</h3>
+    {{-- main dash --}}
+   <section class="grid max-w-full col-span-full min-w-[-moz-available] w-[-webkit-fill-available] grid-cols-12 gap-3 p-3 px-4">
+        @hasaccess('User_read')
+            <div class="flex flex-col justify-center w-full col-span-6 p-3 bg-gray-200 md:col-span-4 lg:col-span-3 rounded-3 shadow-soft-lg">
+                <span class="flex p-1 text-4xl poppin">Users</span>
+                <span class="flex p-1 text-3xl poppin">{{$users->count()}}</span>
+                <span class="flex p-1 lora">
+                    <a href="{{route('admin.users.index')}}" class="flex flex-row items-center p-2 px-4 text-white bg-vendor-compliment-primary rounded-2 shadow-soft-xl hover:bg-green-700">
+                        <i class="mx-2 fas fa-users"></i> Users
+                    </a>
+                </span>
             </div>
-            <div
-                class="h-32 px-4 py-2 text-gray-400 border border-gray-200 border-dashed rounded dark:border-gray-600">
-                <h3>Card body</h3>
+        @endhasaccess
+
+
+        @hasaccess('Post_read')
+            <div class="flex flex-col justify-center w-full col-span-6 p-3 bg-gray-200 md:col-span-4 lg:col-span-3 rounded-3 shadow-soft-lg">
+                <span class="flex p-1 text-4xl poppin">Posts</span>
+                <span class="flex p-1 text-3xl poppin">{{$posts->count()}}</span>
+                <span class="flex p-1 lora">
+                    <a href="{{route('admin.posts.index')}}" class="flex flex-row items-center p-2 px-4 text-white bg-vendor-compliment-primary rounded-2 shadow-soft-xl hover:bg-green-700">
+                        <i class="mx-2 fas fa-pager"></i> Posts
+                    </a>
+                </span>
             </div>
-            <div
-                class="px-4 py-2 text-gray-400 border border-gray-200 border-dashed rounded dark:border-gray-600">
-                <h3>Card footer</h3>
+        @endhasaccess
+
+        @hasaccess('PostCategory_read')
+            <div class="flex flex-col justify-center w-full col-span-6 p-3 bg-gray-200 md:col-span-4 lg:col-span-3 rounded-3 shadow-soft-lg">
+                <span class="flex p-1 text-3xl poppin">Post Category</span>
+                <span class="flex p-1 text-3xl poppin">{{$postCategories->count()}}</span>
+                <span class="flex p-1 lora">
+                    <a href="{{route('admin.post-categories.index')}}" class="flex flex-row items-center p-2 px-4 text-white bg-vendor-compliment-primary rounded-2 shadow-soft-xl hover:bg-green-700">
+                        <i class="mx-2 fas fa-tags"></i> Post Category
+                    </a>
+                </span>
             </div>
-        </div>
-        <div
-            class="p-4 mb-4 space-y-6 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
-            <div
-                class="px-4 py-2 text-gray-400 border border-gray-200 border-dashed rounded dark:border-gray-600">
-                <h3>Card header</h3>
+        @endhasaccess
+
+        @hasaccess('Topic_read')
+            <div class="flex flex-col justify-center w-full col-span-6 p-3 bg-gray-200 md:col-span-4 lg:col-span-3 rounded-3 shadow-soft-lg">
+                <span class="flex p-1 text-4xl poppin">Topics</span>
+                <span class="flex p-1 text-3xl poppin">{{$topics->count()}}</span>
+                <span class="flex p-1 lora">
+                    <a href="{{route('admin.topics.index')}}" class="flex flex-row items-center p-2 px-4 text-white bg-vendor-compliment-primary rounded-2 shadow-soft-xl hover:bg-green-700">
+                        <i class="mx-2 fab fa-hubspot "></i> Topics
+                    </a>
+                </span>
             </div>
-            <div
-                class="h-32 px-4 py-2 text-gray-400 border border-gray-200 border-dashed rounded dark:border-gray-600">
-                <h3>Card body</h3>
+        @endhasaccess
+
+        @hasaccess('Role_read')
+            <div class="flex flex-col justify-center w-full col-span-6 p-3 bg-gray-200 md:col-span-4 lg:col-span-3 rounded-3 shadow-soft-lg">
+                <span class="flex p-1 text-4xl poppin">Roles</span>
+                <span class="flex p-1 text-3xl poppin">{{$roles->count()}}</span>
+                <span class="flex p-1 lora">
+                    <a href="{{route('admin.roles.index')}}" class="flex flex-row items-center p-2 px-4 text-white bg-vendor-compliment-primary rounded-2 shadow-soft-xl hover:bg-green-700">
+                        <i class="mx-2 fas fa-diagram-project"></i> Roles
+                    </a>
+                </span>
             </div>
-            <div
-                class="px-4 py-2 text-gray-400 border border-gray-200 border-dashed rounded dark:border-gray-600">
-                <h3>Card footer</h3>
+        @endhasaccess
+
+        @hasaccess('Page_read')
+            <div class="flex flex-col justify-center w-full col-span-6 p-3 bg-gray-200 md:col-span-4 lg:col-span-3 rounded-3 shadow-soft-lg">
+                <span class="flex p-1 text-4xl poppin">Pages</span>
+                <span class="flex p-1 text-3xl poppin">{{$pages->count()}}</span>
+                <span class="flex p-1 lora">
+                    <a href="{{route('admin.pages.index')}}" class="flex flex-row items-center p-2 px-4 text-white bg-vendor-compliment-primary rounded-2 shadow-soft-xl hover:bg-green-700">
+                        <i class="mx-2 fas fa-globe"></i> Pages
+                    </a>
+                </span>
             </div>
-        </div>
-    </div>
-    <div class="col-span-2">
-        <div
-            class="p-4 mb-4 space-y-6 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
-            <div
-                class="px-4 py-2 text-gray-400 border border-gray-200 border-dashed rounded dark:border-gray-600">
-                <h3>Card header</h3>
+        @endhasaccess
+
+        @hasaccess('Permission_read')
+            <div class="flex flex-col justify-center w-full col-span-6 p-3 bg-gray-200 md:col-span-4 lg:col-span-3 rounded-3 shadow-soft-lg">
+                <span class="flex p-1 text-4xl poppin">Permissions</span>
+                <span class="flex p-1 text-3xl poppin">{{$permissions->count()}}</span>
+                <span class="flex p-1 lora">
+                    <a href="{{route('admin.permissions.index')}}" class="flex flex-row items-center p-2 px-4 text-white bg-vendor-compliment-primary rounded-2 shadow-soft-xl hover:bg-green-700">
+                        <i class="mx-2 fas fa-key"></i> Permissions
+                    </a>
+                </span>
             </div>
-            <div
-                class="h-32 px-4 py-2 text-gray-400 border border-gray-200 border-dashed rounded dark:border-gray-600">
-                <h3>Card body</h3>
+        @endhasaccess
+
+        @hasaccess('Article_read')
+            <div class="flex flex-col justify-center w-full col-span-6 p-3 bg-gray-200 md:col-span-4 lg:col-span-3 rounded-3 shadow-soft-lg">
+                <span class="flex p-1 text-4xl poppin">Articles</span>
+                <span class="flex p-1 text-3xl poppin">{{$articles->count()}}</span>
+                <span class="flex p-1 lora">
+                    <a href="{{route('admin.articles.index')}}" class="flex flex-row items-center p-2 px-4 text-white bg-vendor-compliment-primary rounded-2 shadow-soft-xl hover:bg-green-700">
+                        <i class="mx-2 fas fa-file-pdf"></i> Articles
+                    </a>
+                </span>
             </div>
-            <div
-                class="px-4 py-2 text-gray-400 border border-gray-200 border-dashed rounded dark:border-gray-600">
-                <h3>Card footer</h3>
-            </div>
-        </div>
-        <div
-            class="p-4 mb-4 space-y-6 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
-            <div
-                class="px-4 py-2 text-gray-400 border border-gray-200 border-dashed rounded dark:border-gray-600">
-                <h3>Card header</h3>
-            </div>
-            <div
-                class="h-32 px-4 py-2 text-gray-400 border border-gray-200 border-dashed rounded dark:border-gray-600">
-                <h3>Card body</h3>
-            </div>
-            <div
-                class="px-4 py-2 text-gray-400 border border-gray-200 border-dashed rounded dark:border-gray-600">
-                <h3>Card footer</h3>
-            </div>
-        </div>
-    </div>
+        @endhasaccess
+   </section>
 
 
     <x-slot name="scripts">

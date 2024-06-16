@@ -65,18 +65,16 @@
 
                                 </ul>
                             </li>
-@hasaccess('Page_read')
+                            @hasaccess('Page_read')
+                                <li>
+                                    <a href="{{route('admin.pages.index')}}"
 
-
-                            <li>
-                                <a href="{{route('admin.pages.index')}}"
-
-                                    class="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700 ">
-                                    <i class="fas fa-users text-slate-700"></i>
-                                    <span class="flex-1 ml-3 text-left whitespace-nowrap poppin" sidebar-toggle-item="">Pages</span>
-                                </a>
-                            </li>
-@endhasaccess
+                                        class="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700 ">
+                                        <i class="fas fa-users text-slate-700"></i>
+                                        <span class="flex-1 ml-3 text-left whitespace-nowrap poppin" sidebar-toggle-item="">Pages</span>
+                                    </a>
+                                </li>
+                            @endhasaccess
 
                             <li>
                                 <button type="button"
@@ -88,29 +86,27 @@
                                     <i class="text-blue-700 fas fa-angle-down"></i>
                                 </button>
                                 <ul id="dropdown-topics" class="hidden py-2 space-y-2">
-                                    <li>
-                                        <a href="{{route('admin.topic-categories.index')}}"
-                                            class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Topic Categories</a>
-                                    </li>
-
+                                    @hasaccess('TopicCategory_read')
+                                        <li>
+                                            <a href="{{route('admin.topic-categories.index')}}"
+                                                class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Topic Categories</a>
+                                        </li>
+                                    @endhasaccess
+                                    @hasaccess('Topic_read')
                                     <li>
                                         <a href="{{route('admin.topics.index')}}"
                                             class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Topics</a>
                                     </li>
+                                    @endhasaccess
+                                    @hasaccess('Question_read')
                                     <li>
                                         <a href="{{route('admin.qnans.index')}}"
                                             class="flex items-center p-2 text-base text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700">Questions</a>
                                     </li>
+                                    @endhasaccess
                                 </ul>
                             </li>
 
-                            <li>
-                                <a href="{{route('admin.sites.index')}}"
-                                    class="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700 ">
-                                    <i class="fas fa-users text-slate-700"></i>
-                                    <span class="flex-1 ml-3 text-left whitespace-nowrap poppin" sidebar-toggle-item="">Site</span>
-                                </a>
-                            </li>
 
                             <li>
                                 <button type="button"

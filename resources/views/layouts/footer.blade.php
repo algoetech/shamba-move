@@ -1,6 +1,6 @@
 <!-- Latest footer -->
-<footer class="sticky w-full pt-2 mt-0 bg-black/70 z-100 lg:min-h-120">
-    <div class="container grid w-full grid-flow-row grid-cols-12 p-5 mt-5 lg:mt-10 auto-rows-max">
+<footer class="sticky w-full pt-2 mt-0 bg-black/70 lg-max:bg-black z-100 lg:min-h-120">
+    <div class="container grid w-full grid-flow-row grid-cols-12 p-5 mt-5 pb-30 lg:mt-10 auto-rows-max">
 
         <div class="flex w-full lg:col-span-4 md:col-span-6 sm:col-span-12 kiswaswadu:col-span-full lg:px-4 lg:pr-8">
 
