@@ -70,7 +70,7 @@
 
                         <td class="px-6 py-4 text-right">
                             <div class="flex flex-row gap-2 ">
-                                <a href="{{route('admin.roles.edit', $role->id)}}"
+                                <a href="{{ route('admin.roles.edit', $role->id) }}"
                                     class="font-medium text-blue-600 dark:text-blue-500 hover:underline group hover:scale-110">
                                     <i class="mx-2 text-blue-500 fas fa-edit group-hover:scale-102"></i>
                                 </a>
@@ -91,9 +91,7 @@
                                     Permit
                                 </button>
                                 @include('backend.roles.permit')
-
                             </div>
-
                         </td>
 
                     </tr>
