@@ -108,7 +108,7 @@
         </h1>
     </section>
 
-    <!-- section intro here -->
+    <!-- section intro to edit here -->
     <section class="sticky w-full p-0 bg-white rounded-2 z-100">
         <div class="container grid w-full grid-cols-12 gap-4 px-4 py-8 mx-auto ">
 
@@ -121,11 +121,13 @@
                 Placeat incidunt sit odio sint laborum odit, voluptates libero excepturi sed perferendis, quas nihil qui voluptatum, facere velit impedit harum est ullam!
             </div>
             <div class="w-full p-3 bg-green-700 border-t-2 kiswaswadu:col-span-full sm:col-span-full md:col-span-6 lg:col-span-4 text-vendor-secondary-beta border-vendor-secondary-beta shadow-soft-lg lg:-mt-[90px]  wow fadeInUp" data-wow-duration="2s" data-wow-delay="1s">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                ljdfh;jorfo[rjfdp's] sit amet consectetur, adipisicing elit.
                 Placeat incidunt sit odio sint laborum odit, voluptates libero excepturi sed perferendis, quas nihil qui voluptatum, facere velit impedit harum est ullam!
             </div>
         </div>
     </section>
+
+
 
     <!-- Latest Post -->
     <section class="">

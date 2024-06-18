@@ -4,10 +4,14 @@
 
         <div class="flex w-full lg:col-span-4 md:col-span-6 sm:col-span-12 kiswaswadu:col-span-full lg:px-4 lg:pr-8">
 
-            <span class="relative flex flex-col w-full p-2 px-3">
+            <span class="relative flex flex-col w-full p-2 text-white px-3">
                 <h4 class="text-4xl text-vendor-secondary-beta tai-font"><i class="mx-3 text-3xl fas fa-globe"></i>Our Motto.</h4>
-                <hr data-content="Test" class="w-full m-0 opacity-100 tai-font hr text-vendor-secondary-beta">
+                <hr data-content="Test" class="w-full m-0 opacity-100 tai-font hr text-white">
                 site Motto Eeeh
+
+
+
+
             </span>
         </div>
         <div class="flex w-full md-max:my-4 lg:col-span-4 md:col-span-6 sm:col-span-12 col-span-full lg:px-4">
@@ -44,7 +48,14 @@
                             <i class="mx-2 fas fa-map-pin"></i>
                             2798 Njiro, Arusha Tanzania.
                         </span>
-
+                      
+                    </li>
+                    <li class="flex items-center px-3 py-1 space-x-3 rounded-1 rtl:space-x-reverse">
+                        <span class="text-white">
+                            <i class="mx-2 fas fa-map-pin"></i>
+                            2798 Njiro, Arusha Tanzania.
+                        </span>
+                      
                     </li>
                 </ul>
             </span>

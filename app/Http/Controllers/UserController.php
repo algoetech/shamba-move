@@ -18,6 +18,7 @@ class UserController extends Controller
      */
     public function index()
     {
+        $this->hasAccess('User_read');
         $users = User::all();
         $title = "Users";
         $roles = Role::all();
