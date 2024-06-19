@@ -126,12 +126,29 @@
             </div>
         </div>
 
+        <hr class="my-6" data-content="">
+
         @if ($post_categories->count() > 0)
-            <div class="container grid w-full grid-cols-12 gap-2 lg:gap-3">
+            <div class="container grid w-full grid-cols-12 gap-2 pb-10 lg:gap-3">
                 @foreach ($post_categories as $postc)
                 @if ($loop->index < 6)
-                    <div class="w-full p-3 border-t-2 kiswaswadu:col-span-full sm:col-span-full md:col-span-6 lg:col-span-4 border-vendor-secondary-beta shadow-soft-lg wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.2s">
-                        <span class="w-full p-2 bg-vendor-secondary-beta/20 text-vendor-compliment-primary">{{$postc->name}}</span>
+                    <div class="w-full border-t border-b-2 rounded-1 kiswaswadu:col-span-full sm:col-span-full md:col-span-6 lg:col-span-4 border-vendor-secondary-beta shadow-soft-lg wow fadeInUp" data-wow-duration="2s" data-wow-delay="{{($loop->index+1)*0.4}}s">
+                        <span class="relative w-full p-2 px-3 text-center text-vendor-compliment-primary">
+                            <h4 class="px-auto">
+                                {{$postc->name}}
+                            </h4>
+                        </span>
+
+                        <div class="w-full p-2 px-4 text-gray-900">
+                            {!! Str::limit($postc->description, 300, '...') !!}
+                        </div>
+
+                        <div class="w-full">
+                            <a href="{{ route('cateshows', ['slug' => $postc->slug]) }}" class="p-2 px-4 rounded-2">
+                                <i class="mr-2 fas fa-link"></i>
+                                
+                            </a>
+                        </div>
                     </div>
                 @endif
 
