@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Question;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+
 
 class QuestionController extends Controller
 {
@@ -12,7 +14,14 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        //
+        $questions = Question::select(['*'])
+        ->with('post:title,id')
+        ->get();
+
+        $title = "Questions";
+        $categories = Question::all();
+
+        return view('backend.questions.index', compact('questions','title','categories'));
     }
 
     /**
@@ -51,8 +60,18 @@ class QuestionController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Question $question)
+    public function destroy(string $id)
     {
         //
+        try {
+            $questions = Question::findOrFail($id);
+            $questions->delete();
+
+            return redirect()->back()->with('status', 'Question deleted successfully.');
+        } catch (\Exception $e) {
+            Log::error('Error deleting Post Category: ' . $e->getMessage());
+
+            return redirect()->back()->with('error', 'There was an error deleting this Post Category. Please try again.');
+        }
     }
-}
+    }

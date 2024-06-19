@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\PostStoreRequest;
 use App\Models\Post;
 use App\Models\PostCategory;
+use App\Models\Question;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
@@ -38,6 +39,7 @@ class PostController extends Controller
             $post->content = $request->description;
             $post->is_published = $request->ispublic?1:0;
 
+
             if ($request->hasFile('image')) {
                 $originalFilename = $request->file('image')->getClientOriginalName();
                 $timestamp = now()->timestamp;
@@ -50,7 +52,12 @@ class PostController extends Controller
             }
 
             $post->save();
+            if ($request->has('isquestion') && $request->isquestion == "on") {
+                $qn = new Question();
+                $qn->post_id = $post->id;
 
+                $qn->save();
+             }
             // return $post;
             return redirect()->route('admin.posts.index')->with('status', 'post was created successfully.');
 

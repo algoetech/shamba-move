@@ -51,7 +51,7 @@ class TopicCategoryController extends Controller
     {
         //
         $topicsCategories = TopicCategory::where('id', '=', $id)->firstOrFail();
-        $title = $topicsCategories->name;
+        $title = "TopicCategories";
         return view('backend.topic-categories.edit', compact('topicsCategories', 'title'));
     }
 
