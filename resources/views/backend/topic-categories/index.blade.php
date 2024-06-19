@@ -15,11 +15,11 @@
                 <button type="button" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal"
                     class="px-5 py-2 mb-2 text-sm font-medium text-white bg-green-600 rounded-lg focus:outline-none hover:bg-green-800 focus:ring-5 focus:ring-green-300 me-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
                     <i class="mr-2 text-gray-200 fas fa-plus"></i>
-                    Post
+                    TopicCategories
                 </button>
             </div>
 
-            @include('backend.posts.add')
+            @include('backend.topic-categories.add')
         @endhasaccess
 
         <div class="relative overflow-x-auto sm:rounded-lg">
@@ -35,14 +35,11 @@
                             </div>
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Name
+                            Category Name
 
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Category
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Description
+                            Category Description
                         </th>
                         @hasaccess('Post_update')
                         <th scope="col" class="px-6 py-3">
@@ -52,7 +49,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($posts as $post)
+                    @foreach ($topicsCategories as $topic)
                     @if (auth()->user()->role->name == 'admin')
                         <tr
                             class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
@@ -64,34 +61,29 @@
                                 </div>
                             </td>
                             <td class="flex flex-col px-6 py-4">
-                                {{ $post->title }}
+                                {{ $topic->title }}
                                 @if (auth()->user()->role->name == 'admin')
-                                <span class="w-full capitalize lora text-rose-700">
-                                    By: {{$post->user->name}}
-                                </span>
+                                     {{$topic->name}}
                                 @endif
                             </td>
-                            <td class="px-6 py-4">
 
-                                {{ $post->post_category->name }}
-                            </td>
                             <td class="px-6 py-4">
-                                {!! Str::limit($post->content, 70, '...') !!}
+                                {!! Str::limit($topic->description, 70, '...') !!}
                             </td>
 
-                            @hasaccess('Post_update')
+                            @hasaccess('Topic_update')
                                 <td class="px-6 py-4 text-right">
                                     <div class="flex flex-row gap-2 ">
-                                        <a href="{{route('admin.posts.edit', $post->id)}}"
+                                        <a href="{{route('admin.topic-categories.edit', $topic->id)}}"
                                             class="font-medium text-blue-600 dark:text-blue-500 hover:underline group hover:scale-110">
                                             <i class="mx-2 text-blue-500 fas fa-edit group-hover:scale-102"></i>
                                         </a>
 
-                                        @hasaccess('Post_delete')
-                                            <form action="{{route('admin.posts.destroy', $post->id)}}" method="post">
+                                        @hasaccess('Topic_delete')
+                                            <form action="{{route('admin.topic-categories.destroy', $topic->id)}}" method="post">
                                                 @csrf
                                                 @method('DELETE')
-                                                <input type="hidden" name="userid" value="{{$post->id}}" />
+                                                <input type="hidden" name="userid" value="{{$topic->id}}" />
                                                 <button type="submit" class="group hover:scale-110"
                                                     onclick="return confirm('Are you sure You want to do this!');">
                                                     <i class="mx-2 fas fa-trash-can text-rose-400 group-hover:scale-102"></i>
@@ -105,7 +97,7 @@
                             @endhasaccess
 
                         </tr>
-                    @elseif (auth()->user()->id == $post->user_id && auth()->user()->role->name != 'admin')
+                    @elseif (auth()->user()->id == $topic->user_id && auth()->user()->role->name != 'admin')
 
 
                     <tr
@@ -118,29 +110,29 @@
                             </div>
                         </td>
                         <td class="px-6 py-4">
-                            {{ $post->title }}
+                            {{ $topic->title }}
                         </td>
                         <td class="px-6 py-4">
 
-                            {{ $post->post_category->name }}
+                            {{ $topic->topic_category->name }}
                         </td>
                         <td class="px-6 py-4">
-                            {!! Str::limit($post->content, 70, '...') !!}
+                            {!! Str::limit($topic->content, 70, '...') !!}
                         </td>
 
                         @hasaccess('Post_update')
                             <td class="px-6 py-4 text-right">
                                 <div class="flex flex-row gap-2 ">
-                                    <a href="{{route('admin.posts.edit', $post->id)}}"
+                                    <a href="{{route('admin.posts.edit', $topic->id)}}"
                                         class="font-medium text-blue-600 dark:text-blue-500 hover:underline group hover:scale-110">
                                         <i class="mx-2 text-blue-500 fas fa-edit group-hover:scale-102"></i>
                                     </a>
 
                                     @hasaccess('Post_delete')
-                                        <form action="{{route('admin.posts.destroy', $post->id)}}" method="post">
+                                        <form action="{{route('admin.posts.destroy', $topic->id)}}" method="post">
                                             @csrf
                                             @method('DELETE')
-                                            <input type="hidden" name="userid" value="{{$post->id}}" />
+                                            <input type="hidden" name="userid" value="{{$topic->id}}" />
                                             <button type="submit" class="group hover:scale-110"
                                                 onclick="return confirm('Are you sure You want to do this!');">
                                                 <i class="mx-2 fas fa-trash-can text-rose-400 group-hover:scale-102"></i>
