@@ -15,6 +15,7 @@ class Topic extends Model
         'name',
         'slug',
         'description',
+        'user_id',
     ];
 
 
