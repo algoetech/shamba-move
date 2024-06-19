@@ -75,15 +75,31 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'title' => 'string|required|min:9',
+            'content' => 'string'
+        ]);
+
+        try {
+            $post = Post::where('id', '=', $id)->firstOrFail();
+
+            $post->title = $request->title;
+            $post->content = $request->content;
+
+            $post->update();
+
+            return redirect()->back()->with('status', "Post Updated Successfully");
+        } catch (\Exception $th) {
+            return redirect()->back()->with('error', "Post Failed to be Updated: {$th->getMessage()}");
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Post $post)
+    public function destroy(string $post)
     {
         try {
             $post = Post::findOrFail($post);
@@ -93,7 +109,7 @@ class PostController extends Controller
         } catch (\Exception $e) {
             Log::error('Error deleting Post Category: ' . $e->getMessage());
 
-            return redirect()->back()->with('error', 'There was an error deleting this Post . Please try again.');
+            return redirect()->back()->with('error', "There was an error deleting this Post . {$e->getMessage()}.");
         }
     }
 }

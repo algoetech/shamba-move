@@ -23,13 +23,7 @@ class RoleController extends Controller
         return view('backend.roles.index', compact('roles', 'title', 'permissions'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -57,29 +51,50 @@ class RoleController extends Controller
         }
     }
 
-   
+
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Role $role)
+    public function edit(string $id)
     {
-        //
+        $role = Role::findOrFail($id);
+
+        $title = "Edit {$role->name}";
+        return view('backend.roles.edit', compact('role', 'title'));
+
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Role $role)
+    public function update(Request $request, string $id)
     {
-        //
+        try {
+            $role = Role::findOrFail($id);
+            $role->name = $request->title;
+            $role->guard_name = $request->guard;
+
+            $role->update();
+
+            return redirect()->route('admin.roles.index')->with('status', 'Role Updated successfully.');
+        } catch (\Exception $e) {
+             return redirect()->route('admin.roles.edit')->with('status', "Error: {$e->getMessage()}");
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Role $role)
+    public function destroy(string $id)
     {
-        //
+        try {
+            $role = Role::findOrFail($id);
+            $role->delete();
+
+            return redirect()->route('admin.roles.index')->with('status', 'Role deleted successfully.');
+        } catch (\Exception $e) {
+            return redirect()->route('admin.roles.index')->with('status', "Error: {$e->getMessage()}");
+        }
     }
 
 
@@ -96,10 +111,8 @@ class RoleController extends Controller
             $role = Role::findOrFail($decodedRoleId[0]);
             $permissions = $request->input('permissions', []);
 
-            // Ensure permissions are valid IDs
             $validPermissions = Permission::whereIn('id', $permissions)->pluck('id')->toArray();
 
-            // Sync the permissions to the role
             $role->syncPermissions($validPermissions);
 
             return redirect()->back()->with('status', 'Permissions assigned successfully.');
