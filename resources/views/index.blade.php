@@ -102,7 +102,7 @@
         </div>
     </section>
 
-      <!-- section header here -->
+    <!-- section header here -->
     <section class="container relative w-full p-0 mt-20 align-middle rounded-0 z-100 ">
         <h1 class="pt-20 pb-10 font-bold text-center text-7xl text-vendor-secondary-beta tai-font">{{config('app.name', 'Shamba Move')}}
         </h1>
@@ -125,6 +125,21 @@
                 Placeat incidunt sit odio sint laborum odit, voluptates libero excepturi sed perferendis, quas nihil qui voluptatum, facere velit impedit harum est ullam!
             </div>
         </div>
+
+        @if ($post_categories->count() > 0)
+            <div class="container grid w-full grid-cols-12 gap-2 lg:gap-3">
+                @foreach ($post_categories as $postc)
+                @if ($loop->index < 6)
+                    <div class="w-full p-3 border-t-2 kiswaswadu:col-span-full sm:col-span-full md:col-span-6 lg:col-span-4 border-vendor-secondary-beta shadow-soft-lg wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.2s">
+                        <span class="w-full p-2 bg-vendor-secondary-beta/20 text-vendor-compliment-primary">{{$postc->name}}</span>
+                    </div>
+                @endif
+
+                @endforeach
+
+            </div>
+        @endif
+
     </section>
 
     <!-- Latest Post -->
