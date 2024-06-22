@@ -3,6 +3,7 @@
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\GeneralController;
+use App\Http\Controllers\MediaController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\PostCategoryController;
@@ -26,7 +27,8 @@ Route::prefix('OAuth')->get('/dashboard', [PageController::class, 'dashboard'])-
 Route::get('/categs', [GeneralController::class, 'post_categories'])->name('categories');
 Route::get('/categs/{slug}', [GeneralController::class, 'category_show'])->name('cateshows');
 Route::get('/read/{slug}', [GeneralController::class, 'postRead'])->name('readpost');
-Route::get('/media', [GeneralController::class, 'media'])->name('media');
+Route::get('/gallery', [GeneralController::class, 'media'])->name('media');
+Route::get('/watchvideo/{id}', [GeneralController::class, 'watchVideo'])->name('watchvideo');
 
 
 
@@ -63,6 +65,7 @@ Route::prefix('OAuth')->as('admin.')->middleware(['auth', 'role:admin|user|exper
         'post-categories' => PostCategoryController::class,
         'permissions' => PermissionController::class,
         'sites' => SiteController::class,
+        'media' => MediaController::class,
     ]);
 
     Route::post('/permit/{role}/ability', [RoleController::class, 'closure'])->name('assign');

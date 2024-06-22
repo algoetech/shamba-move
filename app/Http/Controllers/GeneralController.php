@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Media;
 use App\Models\Page;
 use App\Models\Post;
 use App\Models\PostCategory;
@@ -96,12 +97,28 @@ class GeneralController extends Controller
         $articles = Article::all();
         $posts = Post::all();
         $title = "Our Media";
+        $videos = Media::where('type', '=', 'video')->get();
         $post_categories = PostCategory::all();
         $pages = Page::all();
         $topics = Topic::all();
         $sites = Site::all();
         $topic_categories = TopicCategory::all();
-        return view('frontend.pages.media', compact('title', 'posts', 'post_categories', 'pages', 'topics', 'topic_categories', 'sites'));
+        return view('frontend.pages.media', compact('title', 'posts', 'videos', 'post_categories', 'pages', 'topics', 'topic_categories', 'sites'));
+    }
+
+    public function watchVideo($id)
+    {
+        $video = Media::where('id', '=', $id)->firstOrFail();
+        $articles = Article::all();
+        $posts = Post::all();
+        $title = "Our Media";
+        $videos = Media::where('type', '=', 'video')->firstOrFail();
+        $post_categories = PostCategory::all();
+        $pages = Page::all();
+        $topics = Topic::all();
+        $sites = Site::all();
+        $topic_categories = TopicCategory::all();
+        return view('frontend.pages.watch', compact('video', 'posts', 'videos', 'post_categories', 'pages', 'topics', 'topic_categories', 'sites'));
     }
 
 }

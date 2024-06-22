@@ -46,6 +46,15 @@
                                 </a>
                             </li>
                             @endhasaccess
+                            @hasaccess('Media_read')
+                            <li>
+                                <a href="{{route('admin.media.index')}}"
+                                    class="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700 ">
+                                    <i class="fas fa-users text-slate-700"></i>
+                                    <span class="flex-1 ml-3 text-left whitespace-nowrap poppin" sidebar-toggle-item="">Medias</span>
+                                </a>
+                            </li>
+                            @endhasaccess
                             <li>
                                 <button type="button"
                                     class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700"

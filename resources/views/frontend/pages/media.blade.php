@@ -33,6 +33,7 @@
         <h2 class="container w-full pt-2 text-center text-white border-b hover:border-b-4 border-vendor-secondary-alpha tai-font">Relative Posts</h2>
        <div class="container grid grid-cols-12 gap-3 p-2">
 
+        <h2 class="p-3 text-3xl tai-font">Images</h2>
         @foreach ($posts as $post)
 
             <div class="relative w-full h-auto row-auto p-3 overflow-hidden group shadow-soft-lg xl:col-span-4 lg:col-span-4 bg-vendor-white md:col-span-6 sm-max:col-span-full sm:col-span-full">
@@ -50,6 +51,32 @@
                     <a href="{{route('readpost', ['slug'=>$post->slug])}}" class="p-2 px-3 text-white max-w-[200px] rounded-1 shadow-soft-md bg-vendor-secondary-beta">
                         <div class="mr-2 fas fa-link"></div>
                         Visit this
+                    </a>
+                </div>
+            </div>
+        @endforeach
+
+
+        <h2 class="p-3 mt-8 text-3xl tai-font">Videos</h2>
+        <hr class="block w-full hr">
+        @foreach ($videos as $vid)
+
+            <div class="relative w-full h-auto row-auto p-3 overflow-hidden group shadow-soft-lg xl:col-span-4 lg:col-span-4 bg-vendor-white md:col-span-6 sm-max:col-span-full sm:col-span-full">
+                {{-- <h3 class="w-full text-center">{{$vid->title}}</h3> --}}
+                <div class="relative w-full overflow-hidden min-h-[400px] max-h-auto">
+                    <video controls class="absolute w-full min-h-[200px] max-h-auto">
+                        <source src="{{ url($vid->file) }}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+
+                <div class="absolute top-0 flex-col justify-center mt-3 w-[90%] hidden group-hover:flex">
+                    <small class="px-2 py-1 text-red-600 text-start tai-font text-[24px]">
+                        By {{Auth::user()->name}}.
+                    </small>
+                    <a href="{{ route('watchvideo', ['id' => $vid->id]) }}" class="p-2 px-3 text-white max-w-[200px] rounded-1 shadow-soft-md bg-vendor-secondary-beta">
+                        <div class="mr-2 fas fa-link"></div>
+                        Watch this
                     </a>
                 </div>
             </div>

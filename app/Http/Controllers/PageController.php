@@ -44,6 +44,7 @@ class PageController extends Controller
 
     public function store(PageStoreRequest $request)
     {
+        $this->hasAccess('Page_create');
         try {
             $page = new Page();
 
@@ -79,6 +80,7 @@ class PageController extends Controller
 
     public function edit(string $id)
     {
+        $this->hasAccess('Page_update');
         $page = Page::where('id', '=', $id)->firstOrFail();
         $title = $page->title;
         return view('backend.pages.edit', compact('page', 'title'));
@@ -87,6 +89,7 @@ class PageController extends Controller
 
     public function update(PageStoreRequest $request,  string $id)
     {
+        $this->hasAccess('Page_update');
         try {
             $page = Page::findOrFail($id);
 
@@ -105,6 +108,7 @@ class PageController extends Controller
 
     public function destroy(string $id)
     {
+        $this->hasAccess('Page_delete');
         try {
             $page = Page::findOrFail($id);
             if ($page->banner) {
