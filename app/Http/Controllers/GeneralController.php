@@ -78,4 +78,30 @@ class GeneralController extends Controller
         $topic_categories = TopicCategory::all();
         return view('frontend.pages.posts', compact('cate', 'title', 'posts', 'post_categories', 'pages', 'topics', 'topic_categories', 'sites'));
     }
+
+    public function postRead(string $slug){
+        $target = Post::where('slug', '=', $slug)->firstOrFail();
+        $articles = Article::all();
+        $posts = Post::all();
+        $title = $target->title;
+        $post_categories = PostCategory::all();
+        $pages = Page::all();
+        $topics = Topic::all();
+        $sites = Site::all();
+        $topic_categories = TopicCategory::all();
+        return view('frontend.pages.post_view', compact('target', 'title', 'posts', 'post_categories', 'pages', 'topics', 'topic_categories', 'sites'));
+    }
+
+    public function media(){
+        $articles = Article::all();
+        $posts = Post::all();
+        $title = "Our Media";
+        $post_categories = PostCategory::all();
+        $pages = Page::all();
+        $topics = Topic::all();
+        $sites = Site::all();
+        $topic_categories = TopicCategory::all();
+        return view('frontend.pages.media', compact('title', 'posts', 'post_categories', 'pages', 'topics', 'topic_categories', 'sites'));
+    }
+
 }

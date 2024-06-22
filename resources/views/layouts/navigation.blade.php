@@ -21,7 +21,7 @@
                 </button>
                 {{-- /sidebar trigger --}}
 
-                <a href="https://flowbite-admin-dashboard.vercel.app/" class="flex ml-2 md:mr-24">
+                <a href="{{url('/')}}" class="flex ml-2 md:mr-24">
 
                     <svg id="prefix__Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 885.33 500.56" class="mr-3 h-14">
                         <defs>

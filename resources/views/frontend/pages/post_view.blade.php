@@ -1,3 +1,7 @@
+
+@section('styles')
+
+@endsection
 <x-front>
     @include('frontend.includes.nav')
 
@@ -6,9 +10,11 @@
         <span id="overlay"
             class="w-full absolute h-[920px] bg-gradient-to-tr from-black/80 via-vendor-compliment-primary/60 to-vendor-compliment-primary">
         </span>
-        <img class="w-full" id="banner" src="{{asset('assets/images/villages-farm.jpg')}}" alt="Farmer">
+
+        <img class="w-full" id="banner"
+            src="{{ $target->image?url($target->image):asset('assets/images/villages-farm.jpg') }}" alt="{{$target->title}}">
     </div>
-    <section class="md:container sm:hidden sm-max:hidden mx-auto md:grid grid-cols-12 gap-4 relative z-100 lg:mt-[100px]  text-white">
+    <section class="md:container sm:hidden mx-auto md:grid grid-cols-12 gap-4 relative z-100 lg:mt-[100px]  text-white">
         <div
             class="w-full px-4 py-3 sm:w-full md:w-full col-span-full lg:col-start-1 lg:col-end-8 shadow-soft-lg bg-black/[0.09] border-l-2 border-vendor-secondary-alpha">
             <span class="flex flex-col">
@@ -84,12 +90,12 @@
                     </p>
                     <div class="grid items-end grid-cols-12 gap-4 text-left ">
                         <div class="col-span-4 col-start-8 text-center">
-                            <button
+                            <a href="#"
                                 class="w-full group py-[12px] shadow-soft-xl rounded-2 transition-all delay-200 duration-350 ease-soft-out bg-gradient-to-tr from-vendor-secondary-beta to-vendor-secondary-alpha hover:from-vendor-primary hover:to-vendor-compliment-primary/50">
                                 READ MORE
                                 <i
                                     class="mx-2 transition-none duration-350 delay-300 fas fa-arrow-right group-hover:ml-4 ease-[cubic-bezier(.79,.17,.13,.73)]"></i>
-                            </button>
+                        </a>
                         </div>
                     </div>
                 @endif
@@ -103,81 +109,76 @@
     </section>
 
     <!-- section header here -->
-    <section class="container relative w-full p-0 mt-20 align-middle rounded-0 z-100 ">
-        <h1 class="pt-20 pb-10 font-bold text-center text-7xl text-vendor-secondary-beta tai-font">{{config('app.name', 'Shamba Move')}}
+    <section class="container relative w-full p-0 mt-20 align-middle rounded-2 z-100 ">
+        <h1 class="pt-20 pb-10 font-bold text-center text-7xl text-vendor-secondary-beta tai-font">{{ $title }}
         </h1>
     </section>
 
-    <!-- section intro here -->
-    <section class="sticky w-full p-0 bg-white rounded-2 z-100">
-        <div class="container grid w-full grid-cols-12 gap-4 px-4 py-8 mx-auto ">
 
-            <div class="w-full kiswaswadu:col-span-full p-3 sm:col-span-full md:col-span-6 lg:col-span-4 bg-green-700 text-vendor-secondary-beta border-t-2 border-vendor-secondary-beta shadow-soft-lg  lg:-mt-[90px] wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.2s">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Placeat incidunt sit odio sint laborum odit, voluptates libero excepturi sed perferendis, quas nihil qui voluptatum, facere velit impedit harum est ullam!
-            </div>
-            <div class="w-full p-3 bg-white border-t-2 kiswaswadu:col-span-full sm:col-span-full md:col-span-6 lg:col-span-4 text-vendor-compliment-primary border-vendor-compliment-primary shadow-vendor-compliment-primary/40 shadow-soft-lg wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.6s">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Placeat incidunt sit odio sint laborum odit, voluptates libero excepturi sed perferendis, quas nihil qui voluptatum, facere velit impedit harum est ullam!
-            </div>
-            <div class="w-full p-3 bg-green-700 border-t-2 kiswaswadu:col-span-full sm:col-span-full md:col-span-6 lg:col-span-4 text-vendor-secondary-beta border-vendor-secondary-beta shadow-soft-lg lg:-mt-[90px]  wow fadeInUp" data-wow-duration="2s" data-wow-delay="1s">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Placeat incidunt sit odio sint laborum odit, voluptates libero excepturi sed perferendis, quas nihil qui voluptatum, facere velit impedit harum est ullam!
-            </div>
+    {{-- section --}}
+    <section class="relative w-full p-0 pt-10 mt-20 align-middle bg-white rounded-0 z-100">
+
+        <div class="container w-full my-3 text-justify lora">
+            <small class="my-5">Written By: <span class="text-red-600">{{$target->user->name}}</span> {{$target->created_at->diffForHumans()}} </small>
+            {!! $target->content !!}
         </div>
 
-        <hr class="block my-6 hr" data-tw-content="our contebt" data-content="Our Categories">
-        <h2 class="w-full p-2 text-center tai-font">Our Categories</h2>
+        <h2 class="container w-full pt-8 text-center border-b hover:border-b-4 border-vendor-secondary-alpha tai-font">Relative Posts</h2>
+       <div class="container grid grid-cols-12 gap-3 p-2">
 
-        @if ($post_categories->count() > 0)
-            <div class="container grid w-full grid-cols-12 gap-2 pb-10 lg:gap-3">
-                @foreach ($post_categories as $postc)
-                    @if ($loop->index < 6)
-                        <div class="w-full border-t border-b-2 rounded-1 kiswaswadu:col-span-full sm:col-span-full md:col-span-6 lg:col-span-4 border-vendor-secondary-beta shadow-soft-lg wow fadeInUp" data-wow-duration="2s" data-wow-delay="{{($loop->index+1)*0.4}}s">
-                            <span class="relative w-full p-2 px-3 text-center text-vendor-compliment-primary">
-                                <h4 class="px-auto">
-                                    {{$postc->name}}
-                                </h4>
-                            </span>
+        @foreach ($target->post_category->posts as $postz)
+            @if (!($postz->id == $target->id))
+                <div class="relative h-auto row-auto p-3 shadow-soft-lg xl:col-span-4 lg:col-span-4 md:col-span-6 sm-max:col-span-full sm:col-span-full rounded-2">
+                    <h3 class="w-full text-center">{{$postz->title}}</h3>
+                    <div class="relative w-full overflow-hidden min-h-[200px] max-h-[210px]">
+                        <img src="{{url($postz->image)}}" alt="{{$postz->title}}" class="absolute w-full min-h-[200px] max-h-[210px]">
 
-                            <div class="w-full p-2 px-4 text-gray-900">
-                                {!! Str::limit($postc->description, 400, '...') !!}
-                            </div>
 
-                            <div class="w-full p-3">
-                                <a href="{{ route('cateshows', ['slug' => $postc->slug]) }}" class="p-3 px-4 rounded-2 bg-vendor-secondary-beta">
-                                    <i class="mr-2 fas fa-link"></i>
-                                    Show More!
-                                </a>
-                            </div>
-                        </div>
-                    @endif
-                @endforeach
-            </div>
-        @endif
+                    </div>
+                    <small class="px-3 py-2 text-red-600 text-start tai-font text-[24px]">
+                        By {{$postz->user->name}}.
+                    </small>
 
+                    <span class="py-3 lora">
+                        {!!Str::limit($postz->content, 450, '...') !!}
+                    </span>
+
+                    <div class="bottom-0 flex justify-end mt-3 ">
+                        <a href="{{route('readpost', ['slug'=>$postz->slug])}}" class="p-3 px-4 rounded-1 shadow-soft-md bg-vendor-tertiary-beta">
+                            <div class="mr-2 fas fa-link"></div>
+                            Read More
+                        </a>
+                    </div>
+                </div>
+            @endif
+        @endforeach
+       </div>
     </section>
 
-    <!-- Latest Post -->
-    <section class="">
-        {{-- @foreach ($role->users as $item)
-            {{$item->name}}
-        @endforeach --}}
-    </section>
+
+
 
     @include('layouts.footer')
 
     <script type="module">
-        $(document).ready(function () {
-        function setOverlayHeight() {
-            $('#overlay').height($('#banner').height());
-        }
-        // Set the height when the document is ready
-        setOverlayHeight();
-        // Set the height on window resize
-        $(window).resize(function () {
+        $(document).ready(function() {
+            function setOverlayHeight() {
+                $('#overlay').height($('#banner').height());
+            }
+            // Set the height when the document is ready
             setOverlayHeight();
+            // Set the height on window resize
+            $(window).resize(function() {
+                setOverlayHeight();
+            });
+
+            // const carousel = new Carousel(carouselElement, items, options, instanceOptions);
+
+            const carousel = new Carousel(document.getElementById('default-carousel'), {
+                interval: 10000, // Optional: interval time in milliseconds
+                pause: 'hover' // Optional: pause the carousel on hover
+            });
+            console.log("aman");
         });
-    });
     </script>
 </x-front>

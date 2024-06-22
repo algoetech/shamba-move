@@ -1,5 +1,5 @@
 @section('styles')
-    
+
 @endsection
 <x-front>
     @include('frontend.includes.nav')
@@ -116,15 +116,15 @@
     <!-- section container here -->
     <section class="sticky grid w-full p-0 bg-white pb-30 rounded-0 z-100">
 
-        <div class="container grid w-full grid-cols-12 px-4 py-8 mx-auto">
+        <div class="container relative grid w-full grid-cols-12 px-4 py-8 mx-auto">
 
             <div class="w-full col-start-1 col-end-13 p-3 text-lg text-justify md:col-end-8 bg-slate-200/10 lora wow slideInUp"
                 data-wow-duration="1s" data-wow-delay="1s">
                 {!! $page->content !!}
             </div>
-            <div class="col-start-8 col-end-13 p-3 py-4 ml-10 bg-green-100/40 rounded-2 shadow-soft-sm">
-                <h3 class="pt-5 text-4xl capitalize tai-font">Other pages.</h3>
-                <ul class="p-4 border-t-2 border-vendor-secondary-beta me-10">
+            <div class="relative col-start-8 col-end-13 p-3 py-4 ml-10 bg-green-100/40 rounded-2 shadow-soft-sm">
+                <h3 class="sticky top-0 pt-5 text-4xl capitalize tai-font">Other pages.</h3>
+                <ul class="sticky p-4 border-t-2 top-10 border-vendor-secondary-beta me-10">
                     @foreach ($pages as $nopage)
                         @if (!$nopage->resource)
                             <li class="flex items-center px-3 py-2 space-x-3 hover:bg-green-500/20 rounded-1 rtl:space-x-reverse wow flipInY"
