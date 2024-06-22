@@ -12,6 +12,7 @@ class Question extends Model
 
     protected $fillable = [
         'post_id',
+        'answer',
         'status',
     ];
 

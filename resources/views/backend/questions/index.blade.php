@@ -10,7 +10,7 @@
 
     <div class="px-4 py-3 mx-5 mb-10 border-t-2 border-green-400 col-span-full rounded-5 shadow-soft-2xl">
 
-        @hasaccess('Post_create')
+        {{-- @hasaccess('Post_create')
             <div class="flex justify-end w-full">
                 <button type="button" data-modal-target="authentication-modal" data-modal-toggle="authentication-modal"
                     class="px-5 py-2 mb-2 text-sm font-medium text-white bg-green-600 rounded-lg focus:outline-none hover:bg-green-800 focus:ring-5 focus:ring-green-300 me-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
@@ -20,7 +20,7 @@
             </div>
 
             @include('backend.posts.add')
-        @endhasaccess
+        @endhasaccess --}}
 
         <div class="relative overflow-x-auto sm:rounded-lg">
             @if (auth()->user()->posts->count() > 0 )
@@ -35,14 +35,14 @@
                             </div>
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Name
+                            Question
 
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Category
+                          Answer
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Description
+                            Status
                         </th>
                         @hasaccess('Post_update')
                         <th scope="col" class="px-6 py-3">
@@ -52,7 +52,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($posts as $post)
+                    @foreach ($questions as $post)
                     @if (auth()->user()->role->name == 'admin')
                         <tr
                             class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
@@ -66,29 +66,27 @@
                             <td class="flex flex-col px-6 py-4">
                                 {{ $post->title }}
                                 @if (auth()->user()->role->name == 'admin')
-                                <span class="w-full capitalize lora text-rose-700">
-                                    By: {{$post->user->name}}
-                                </span>
+
+                                    {{$post->post->title}}
+
                                 @endif
                             </td>
                             <td class="px-6 py-4">
 
-                                {{ $post->post_category->name }}
+                                {{ $post->answer }}
                             </td>
                             <td class="px-6 py-4">
-                                {!! Str::limit($post->content, 70, '...') !!}
+                                <span class="w-full capitalize lora text-green-900">
+                                {{$post->status}}
+                            </span>
                             </td>
 
                             @hasaccess('Post_update')
                                 <td class="px-6 py-4 text-right">
                                     <div class="flex flex-row gap-2 ">
-                                        <a href="{{route('admin.posts.edit', $post->id)}}"
-                                            class="font-medium text-blue-600 dark:text-blue-500 hover:underline group hover:scale-110">
-                                            <i class="mx-2 text-blue-500 fas fa-edit group-hover:scale-102"></i>
-                                        </a>
 
                                         @hasaccess('Post_delete')
-                                            <form action="{{route('admin.posts.destroy', $post->id)}}" method="post">
+                                            <form action="{{route('admin.qnans.destroy', $post->id)}}" method="post">
                                                 @csrf
                                                 @method('DELETE')
                                                 <input type="hidden" name="userid" value="{{$post->id}}" />

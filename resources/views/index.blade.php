@@ -102,7 +102,7 @@
         </div>
     </section>
 
-      <!-- section header here -->
+    <!-- section header here -->
     <section class="container relative w-full p-0 mt-20 align-middle rounded-0 z-100 ">
         <h1 class="pt-20 pb-10 font-bold text-center text-7xl text-vendor-secondary-beta tai-font">{{config('app.name', 'Shamba Move')}}
         </h1>
@@ -133,6 +133,37 @@
 3."Drive Innovation: Drive forward-thinking solutions and technological advancements that propel agriculture into a sustainable and prosperous future."</b></br></b></br>
             </div>
         </div>
+
+        <hr class="block my-6 hr" data-tw-content="our contebt" data-content="Our Categories">
+        <h2 class="w-full p-2 text-center tai-font">Our Categories</h2>
+
+        @if ($post_categories->count() > 0)
+            <div class="container grid w-full grid-cols-12 gap-2 pb-10 lg:gap-3">
+                @foreach ($post_categories as $postc)
+                    @if ($loop->index < 6)
+                        <div class="w-full border-t border-b-2 rounded-1 kiswaswadu:col-span-full sm:col-span-full md:col-span-6 lg:col-span-4 border-vendor-secondary-beta shadow-soft-lg wow fadeInUp" data-wow-duration="2s" data-wow-delay="{{($loop->index+1)*0.4}}s">
+                            <span class="relative w-full p-2 px-3 text-center text-vendor-compliment-primary">
+                                <h4 class="px-auto">
+                                    {{$postc->name}}
+                                </h4>
+                            </span>
+
+                            <div class="w-full p-2 px-4 text-gray-900">
+                                {!! Str::limit($postc->description, 400, '...') !!}
+                            </div>
+
+                            <div class="w-full p-3">
+                                <a href="{{ route('cateshows', ['slug' => $postc->slug]) }}" class="p-3 px-4 rounded-2 bg-vendor-secondary-beta">
+                                    <i class="mr-2 fas fa-link"></i>
+                                    Show More!
+                                </a>
+                            </div>
+                        </div>
+                    @endif
+                @endforeach
+            </div>
+        @endif
+
     </section>
 
 

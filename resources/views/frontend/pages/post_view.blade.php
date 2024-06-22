@@ -12,7 +12,7 @@
         </span>
 
         <img class="w-full" id="banner"
-            src="{{ asset('assets/images/villages-farm.jpg') }}" alt="Farmer">
+            src="{{ $target->image?url($target->image):asset('assets/images/villages-farm.jpg') }}" alt="{{$target->title}}">
     </div>
     <section class="md:container sm:hidden mx-auto md:grid grid-cols-12 gap-4 relative z-100 lg:mt-[100px]  text-white">
         <div
@@ -119,36 +119,38 @@
     <section class="relative w-full p-0 pt-10 mt-20 align-middle bg-white rounded-0 z-100">
 
         <div class="container w-full my-3 text-justify lora">
-            {!! $cate->description !!}
+            <small class="my-5">Written By: <span class="text-red-600">{{$target->user->name}}</span> {{$target->created_at->diffForHumans()}} </small>
+            {!! $target->content !!}
         </div>
 
         <h2 class="container w-full pt-8 text-center border-b hover:border-b-4 border-vendor-secondary-alpha tai-font">Relative Posts</h2>
        <div class="container grid grid-cols-12 gap-3 p-2">
 
-        @foreach ($cate->posts as $post)
+        @foreach ($target->post_category->posts as $postz)
+            @if (!($postz->id == $target->id))
+                <div class="relative h-auto row-auto p-3 shadow-soft-lg xl:col-span-4 lg:col-span-4 md:col-span-6 sm-max:col-span-full sm:col-span-full rounded-2">
+                    <h3 class="w-full text-center">{{$postz->title}}</h3>
+                    <div class="relative w-full overflow-hidden min-h-[200px] max-h-[210px]">
+                        <img src="{{url($postz->image)}}" alt="{{$postz->title}}" class="absolute w-full min-h-[200px] max-h-[210px]">
 
-            <div class="relative h-auto row-auto p-3 shadow-soft-lg xl:col-span-4 lg:col-span-4 md:col-span-6 sm-max:col-span-full sm:col-span-full rounded-2">
-                <h3 class="w-full text-center">{{$post->title}}</h3>
-                <div class="relative w-full overflow-hidden min-h-[200px] max-h-[210px]">
-                    <img src="{{url($post->image)}}" alt="{{$post->title}}" class="absolute w-full min-h-[200px] max-h-[210px]">
 
+                    </div>
+                    <small class="px-3 py-2 text-red-600 text-start tai-font text-[24px]">
+                        By {{$postz->user->name}}.
+                    </small>
 
+                    <span class="py-3 lora">
+                        {!!Str::limit($postz->content, 450, '...') !!}
+                    </span>
+
+                    <div class="bottom-0 flex justify-end mt-3 ">
+                        <a href="{{route('readpost', ['slug'=>$postz->slug])}}" class="p-3 px-4 rounded-1 shadow-soft-md bg-vendor-tertiary-beta">
+                            <div class="mr-2 fas fa-link"></div>
+                            Read More
+                        </a>
+                    </div>
                 </div>
-                <small class="px-3 py-2 text-red-600 text-start tai-font text-[24px]">
-                    By {{$post->user->name}}.
-                </small>
-
-                <span class="py-3 lora">
-                    {!!Str::limit($post->content, 450, '...') !!}
-                </span>
-
-                <div class="sticky bottom-0 flex justify-end mt-3 ">
-                    <a href="{{route('readpost', ['slug'=>$post->slug])}}" class="p-3 px-4 rounded-1 shadow-soft-md bg-vendor-tertiary-beta">
-                        <div class="mr-2 fas fa-link"></div>
-                        Read More
-                    </a>
-                </div>
-            </div>
+            @endif
         @endforeach
        </div>
     </section>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\PostStoreRequest;
 use App\Models\Post;
 use App\Models\PostCategory;
+use App\Models\Question;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
@@ -38,6 +39,7 @@ class PostController extends Controller
             $post->content = $request->description;
             $post->is_published = $request->ispublic?1:0;
 
+
             if ($request->hasFile('image')) {
                 $originalFilename = $request->file('image')->getClientOriginalName();
                 $timestamp = now()->timestamp;
@@ -50,7 +52,12 @@ class PostController extends Controller
             }
 
             $post->save();
+            if ($request->has('isquestion') && $request->isquestion == "on") {
+                $qn = new Question();
+                $qn->post_id = $post->id;
 
+                $qn->save();
+             }
             // return $post;
             return redirect()->route('admin.posts.index')->with('status', 'post was created successfully.');
 
@@ -75,15 +82,31 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'title' => 'string|required|min:9',
+            'content' => 'string'
+        ]);
+
+        try {
+            $post = Post::where('id', '=', $id)->firstOrFail();
+
+            $post->title = $request->title;
+            $post->content = $request->content;
+
+            $post->update();
+
+            return redirect()->back()->with('status', "Post Updated Successfully");
+        } catch (\Exception $th) {
+            return redirect()->back()->with('error', "Post Failed to be Updated: {$th->getMessage()}");
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Post $post)
+    public function destroy(string $post)
     {
         try {
             $post = Post::findOrFail($post);
@@ -93,7 +116,7 @@ class PostController extends Controller
         } catch (\Exception $e) {
             Log::error('Error deleting Post Category: ' . $e->getMessage());
 
-            return redirect()->back()->with('error', 'There was an error deleting this Post . Please try again.');
+            return redirect()->back()->with('error', "There was an error deleting this Post . {$e->getMessage()}.");
         }
     }
 }

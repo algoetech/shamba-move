@@ -35,7 +35,7 @@
                 <i class="fas fa-phone mr-[2px]"></i>
                 <span class="hidden md:flex">Contacts</span>
             </a>
-            <a href="" class="flex flex-row items-center justify-center gap-2 transition-all delay-100 ms-2 justify text-vendor-secondary-alpha/95 hover:text-orange-200 hover:scale-102 duration-400 ease-soft-out ">
+            <a href="{{route('media')}}" class="flex flex-row items-center justify-center gap-2 transition-all delay-100 ms-2 justify text-vendor-secondary-alpha/95 hover:text-orange-200 hover:scale-102 duration-400 ease-soft-out ">
                 <i class="fas fa-images mr-[2px]"></i>
 
                 <span class="hidden md:flex">Media</span>
