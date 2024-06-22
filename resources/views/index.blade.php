@@ -108,21 +108,29 @@
         </h1>
     </section>
 
-    <!-- section intro to edit here -->
+    <!-- section intro to edit here    -->
     <section class="sticky w-full p-0 bg-white rounded-2 z-100">
         <div class="container grid w-full grid-cols-12 gap-4 px-4 py-8 mx-auto ">
 
             <div class="w-full kiswaswadu:col-span-full p-3 sm:col-span-full md:col-span-6 lg:col-span-4 bg-green-700 text-vendor-secondary-beta border-t-2 border-vendor-secondary-beta shadow-soft-lg  lg:-mt-[90px] wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.2s">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Placeat incidunt sit odio sint laborum odit, voluptates libero excepturi sed perferendis, quas nihil qui voluptatum, facere velit impedit harum est ullam!
+                    OUR MISSION 
+                <br><b style="font-style:italic;">"To empower farmers and agricultural professionals through knowledge sharing, community collaboration, and sustainable practices, fostering a thriving agricultural ecosystem."</b></br>
             </div>
             <div class="w-full p-3 bg-white border-t-2 kiswaswadu:col-span-full sm:col-span-full md:col-span-6 lg:col-span-4 text-vendor-compliment-primary border-vendor-compliment-primary shadow-vendor-compliment-primary/40 shadow-soft-lg wow fadeInUp" data-wow-duration="2s" data-wow-delay="0.6s">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Placeat incidunt sit odio sint laborum odit, voluptates libero excepturi sed perferendis, quas nihil qui voluptatum, facere velit impedit harum est ullam!
+               OUR VISION
+               <br><b style="font-style:italic;"><br><b style="font-style:italic;">"To empower farmers and agricultural professionals through knowledge sharing, community collaboration, and sustainable practices, fostering a thriving agricultural ecosystem."</b></br></b></br>
             </div>
+
+            
             <div class="w-full p-3 bg-green-700 border-t-2 kiswaswadu:col-span-full sm:col-span-full md:col-span-6 lg:col-span-4 text-vendor-secondary-beta border-vendor-secondary-beta shadow-soft-lg lg:-mt-[90px]  wow fadeInUp" data-wow-duration="2s" data-wow-delay="1s">
-                ljdfh;jorfo[rjfdp's] sit amet consectetur, adipisicing elit.
-                Placeat incidunt sit odio sint laborum odit, voluptates libero excepturi sed perferendis, quas nihil qui voluptatum, facere velit impedit harum est ullam!
+                OUR AMBITIONS
+                <br><b style="font-style:italic;"><br><b style="font-style:italic;">1."Empower Farmers: Provide accessible and practical resources that empower farmers to enhance productivity and sustainability."
+
+                
+<br>2."Build Community: Foster a vibrant community where stakeholders share ideas, innovations, and experiences to inspire agricultural excellence."</br>  
+                                                                                                                                            
+
+3."Drive Innovation: Drive forward-thinking solutions and technological advancements that propel agriculture into a sustainable and prosperous future."</b></br></b></br>
             </div>
         </div>
     </section>
