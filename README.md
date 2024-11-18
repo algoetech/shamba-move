@@ -1,5 +1,10 @@
 # Shamba-Move
 
+[![Visitors](https://visitor-badge.glitch.me/badge?page_id=algoetech.shamba-move&left_color=green&right_color=blue)](https://github.com/algoetech/shamba-move)
+
+[![GitHub downloads](https://img.shields.io/github/downloads/algoetech/shamba-move/total.svg?color=green)](https://github.com/algoetech/shamba-move/releases)
+
+
 Shamba-Move is a Laravel-based platform designed to revolutionize agricultural practices by providing online expertise, educational resources, and a knowledge exchange hub for farmers, agronomists, and agricultural enthusiasts. This project aims to bridge the gap between traditional farming methods and modern agricultural technologies, ensuring that users have access to the latest information and expert advice to enhance their farming practices.
 
 ## Table of Contents
