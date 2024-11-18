@@ -1,7 +1,6 @@
 # Shamba-Move
 
 [![Visitors](https://visitor-badge.glitch.me/badge?page_id=algoetech.shamba-move&left_color=green&right_color=blue)](https://github.com/algoetech/shamba-move)
-
 [![GitHub downloads](https://img.shields.io/github/downloads/algoetech/shamba-move/total.svg?color=green)](https://github.com/algoetech/shamba-move/releases)
 
 
